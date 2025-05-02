@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Tracking - Environmental Protection Rights in India</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles for Google Maps */
+        .map-container {
+            height: 600px;
+            width: 100%;
+            position: relative;
+            margin: 30px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+        
+        .map-controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 300px;
+        }
+        
+        .tracking-filter {
+            margin-bottom: 15px;
+        }
+        
+        .tracking-filter label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .tracking-filter select,
+        .tracking-filter input {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .map-legend {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10;
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .incident-info {
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: none;
+        }
+        
+        .incident-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .incident-header h3 {
+            margin: 0;
+            color: #2c3e50;
+        }
+        
+        .incident-status {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .status-active {
+            background: #fef4f4;
+            color: #e74c3c;
+        }
+        
+        .status-investigation {
+            background: #fff8e1;
+            color: #f39c12;
+        }
+        
+        .status-resolved {
+            background: #e7f9f0;
+            color: #2ecc71;
+        }
+        
+        .incident-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .detail-label {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+        
+        .detail-value {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .incident-description {
+            margin-bottom: 15px;
+        }
+        
+        .incident-images {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+        
+        .incident-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+        
+        .incident-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .data-sources {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .data-sources h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .source-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 15px 0 0;
+        }
+        
+        .source-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .source-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #edf2f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Bhoomi Rakshak Logo">
+                <span>Bhoomi Rakshak</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="laws.html">Laws</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="tracking.html"><i class="fas fa-map-marker-alt"></i> Real-time Tracking</a></li>
+                <li><a href="legal-miners.html">Legal Miners</a></li>
+                <li><a href="report.html">Report</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Signup</a></li>
+                
+            </ul>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="page-hero">
+            <div class="page-hero-content">
+                <h1>Real-time Illegal Mining Tracking</h1>
+                <p class="subtitle">Monitor reported incidents, ongoing investigations, and enforcement actions across India</p>
+            </div>
+        </section>
+
+        <section class="tracking-intro">
+            <div class="section-header">
+                <h2>Interactive Tracking Map</h2>
+                <div class="underline"></div>
+                <p class="section-intro">View and filter illegal mining incidents across the country with our interactive mapping tool</p>
+            </div>
+            
+            <div class="map-container">
+                <div id="map">
+                    <!-- Google Maps will be loaded here -->
+                </div>
+                
+                <div class="map-controls">
+                    <div class="tracking-filter">
+                        <label for="incident-type">Incident Type:</label>
+                        <select id="incident-type">
+                            <option value="all">All Types</option>
+                            <option value="coal">Coal Mining</option>
+                            <option value="sand">Sand Mining</option>
+                            <option value="stone">Stone Quarrying</option>
+                            <option value="iron">Iron Ore Mining</option>
+                            <option value="other">Other Minerals</option>
+                        </select>
+                    </div>
+                    
+                    <div class="tracking-filter">
+                        <label for="incident-status">Status:</label>
+                        <select id="incident-status">
+                            <option value="all">All Statuses</option>
+                            <option value="active">Active Illegal Operations</option>
+                            <option value="investigation">Under Investigation</option>
+                            <option value="enforcement">Enforcement Action</option>
+                            <option value="resolved">Resolved</option>
+                        </select>
+                    </div>
+                    
+                    <div class="tracking-filter">
+                        <label for="incident-date">Date Range:</label>
+                        <select id="incident-date">
+                            <option value="all">All Time</option>
+                            <option value="day">Past 24 Hours</option>
+                            <option value="week">Past Week</option>
+                            <option value="month">Past Month</option>
+                            <option value="quarter">Past 3 Months</option>
+                            <option value="year">Past Year</option>
+                        </select>
+                    </div>
+                    
+                    <div class="tracking-filter">
+                        <label for="incident-region">Region:</label>
+                        <select id="incident-region">
+                            <option value="all">All India</option>
+                            <option value="north">North India</option>
+                            <option value="south">South India</option>
+                            <option value="east">East India</option>
+                            <option value="west">West India</option>
+                            <option value="central">Central India</option>
+                            <option value="northeast">Northeast India</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #e74c3c;"></div>
+                        <span>Active Illegal Operations</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #f39c12;"></div>
+                        <span>Under Investigation</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #3498db;"></div>
+                        <span>Enforcement Action</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #2ecc71;"></div>
+                        <span>Resolved</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="incident-info" id="incident-details">
+                <div class="incident-header">
+                    <h3>Illegal Coal Mining Operation in Dhanbad</h3>
+                    <span class="incident-status status-active">Active</span>
+                </div>
+                <div class="incident-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Location</span>
+                        <span class="detail-value">Dhanbad, Jharkhand</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type</span>
+                        <span class="detail-value">Coal Mining</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Reported On</span>
+                        <span class="detail-value">June 10, 2023</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Scale</span>
+                        <span class="detail-value">Large (>5 hectares)</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Reported By</span>
+                        <span class="detail-value">Local Community</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Case ID</span>
+                        <span class="detail-value">JH-DHN-2023-142</span>
+                    </div>
+                </div>
+                <div class="incident-description">
+                    <p>Large-scale illegal coal mining operation discovered in the outskirts of Dhanbad. The operation appears to be using heavy machinery and involves approximately 30-40 workers. Environmental damage includes deforestation and possible water contamination.</p>
+                </div>
+                <div class="incident-images">
+                    <img src="images/incident1.jpg" alt="Incident Image 1" class="incident-image">
+                    <img src="images/incident2.jpg" alt="Incident Image 2" class="incident-image">
+                    <img src="images/incident3.jpg" alt="Incident Image 3" class="incident-image">
+                </div>
+                <div class="incident-actions">
+                    <a href="#" class="btn btn-small">View Full Details</a>
+                    <a href="report.html" class="btn btn-small btn-outline">Report Additional Info</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="data-sources">
+            <h3>Data Sources & Updates</h3>
+            <p>Our real-time tracking system compiles data from multiple sources to provide the most comprehensive and up-to-date information on illegal mining activities across India.</p>
+            
+            <ul class="source-list">
+                <li class="source-item">
+                    <div class="source-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div>
+                        <strong>Government Reports</strong>
+                        <p>Official data from Ministry of Mines, State Mining Departments, and Forest Departments</p>
+                    </div>
+                </li>
+                <li class="source-item">
+                    <div class="source-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <strong>Citizen Reports</strong>
+                        <p>Verified reports submitted through our platform by concerned citizens and local communities</p>
+                    </div>
+                </li>
+                <li class="source-item">
+                    <div class="source-icon">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div>
+                        <strong>Satellite Imagery</strong>
+                        <p>Analysis of satellite data to detect changes in land use and potential mining activities</p>
+                    </div>
+                </li>
+                <li class="source-item">
+                    <div class="source-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div>
+                        <strong>News Reports</strong>
+                        <p>Curated information from credible news sources reporting on illegal mining incidents</p>
+                    </div>
+                </li>
+            </ul>
+            
+            <p class="data-update"><strong>Last Updated:</strong> <span id="last-update-time">June 15, 2023, 10:30 AM</span></p>
+        </section>
+    </main>
+
+    <footer class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="logo-white.png" alt="Bhoomi Rakshak Logo">
+                <span>Bhoomi Rakshak</span>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="impact.html">Impact</a></li>
+                        <li><a href="laws.html">Laws</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="tracking.html">Real-time Tracking</a></li>
+                        <li><a href="report.html">Report</a></li>
+                    </ul>
+                </div>
+                <div class="link-group">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Fact Sheets</a></li>
+                        <li><a href="#">Legal Guide</a></li>
+                        <li><a href="#">Research Papers</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="link-group">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Bhoomi Rakshak. All rights reserved.</p>
+            <p class="social-awareness-message">"Protect Nature, Preserve the Future"</p>
+        </div>
+    </footer>
+
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    
+    <script>
+        // Sample data for incidents (in a real application, this would come from a database)
+        const incidents = [
+            {
+                id: "JH-DHN-2023-142",
+                title: "Illegal Coal Mining Operation in Dhanbad",
+                type: "coal",
+                status: "active",
+                lat: 23.7957,
+                lng: 86.4304,
+                location: "Dhanbad, Jharkhand",
+                reportedOn: "June 10, 2023",
+                scale: "Large (>5 hectares)",
+                reportedBy: "Local Community",
+                description: "Large-scale illegal coal mining operation discovered in the outskirts of Dhanbad. The operation appears to be using heavy machinery and involves approximately 30-40 workers. Environmental damage includes deforestation and possible water contamination.",
+                images: ["images/incident1.jpg", "images/incident2.jpg", "images/incident3.jpg"]
+            },
+            {
+                id: "KA-BEL-2023-098",
+                title: "Iron Ore Mining in Protected Forest Area",
+                type: "iron",
+                status: "investigation",
+                lat: 15.1394,
+                lng: 76.6214,
+                location: "Bellary, Karnataka",
+                reportedOn: "May 25, 2023",
+                scale: "Medium (2-5 hectares)",
+                reportedBy: "Forest Department",
+                description: "Unauthorized iron ore extraction detected in a protected forest area. Initial investigation suggests involvement of local mining companies operating beyond their permitted boundaries.",
+                images: ["images/incident4.jpg", "images/incident5.jpg"]
+            },
+            {
+                id: "RJ-ALW-2023-076",
+                title: "Illegal Stone Quarrying in Aravalli Hills",
+                type: "stone",
+                status: "enforcement",
+                lat: 27.5530,
+                lng: 76.6345,
+                location: "Alwar, Rajasthan",
+                reportedOn: "May 12, 2023",
+                scale: "Small (<2 hectares)",
+                reportedBy: "NGO",
+                description: "Stone quarrying activity detected in the Aravalli Hills in violation of Supreme Court orders. Local authorities have seized equipment and arrested 5 individuals involved in the operation.",
+                images: ["images/incident6.jpg"]
+            },
+            {
+                id: "TN-MAD-2023-054",
+                title: "Beach Sand Mining Operation",
+                type: "sand",
+                status: "resolved",
+                lat: 13.0827,
+                lng: 80.2707,
+                location: "Chennai, Tamil Nadu",
+                reportedOn: "April 5, 2023",
+                scale: "Medium (2-5 hectares)",
+                reportedBy: "Coastal Police",
+                description: "Illegal extraction of beach sand containing rare earth minerals. Operation was shut down and environmental restoration work has been completed.",
+                images: ["images/incident7.jpg", "images/incident8.jpg"]
+            },
+            {
+                id: "GJ-KUT-2023-031",
+                title: "Limestone Mining Without Permit",
+                type: "other",
+                status: "active",
+                lat: 23.2420,
+                lng: 69.6669,
+                location: "Kutch, Gujarat",
+                reportedOn: "March 20, 2023",
+                scale: "Large (>5 hectares)",
+                reportedBy: "Satellite Monitoring",
+                description: "Large-scale limestone extraction detected in Kutch region without proper permits or environmental clearances. The area shows signs of extensive excavation visible from satellite imagery.",
+                images: ["images/incident9.jpg"]
+            }
+        ];
+
+        // Initialize Google Maps
+        function initMap() {
+            // Center map on India
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 20.5937, lng: 78.9629 },
+                zoom: 5,
+                mapTypeControl: true,
+                streetViewControl: false,
+                fullscreenControl: true,
+                styles: [
+                    {
+                        "featureType": "administrative",
+                        "elementType": "geometry",
+                        "stylers": [{"visibility": "on"}]
+                    },
+                    {
+                        "featureType": "administrative.country",
+                        "elementType": "geometry.stroke",
+                        "stylers": [{"color": "#a0a0a0"}, {"weight": 1.5}]
+                    },
+                    {
+                        "featureType": "administrative.province",
+                        "elementType": "geometry.stroke",
+                        "stylers": [{"color": "#d0d0d0"}, {"weight": 1}]
+                    }
+                ]
+            });
+            
+            // Add markers for each incident
+            const markers = incidents.map(incident => {
+                // Set marker color based on status
+                let markerColor = "#e74c3c"; // active - red
+                if (incident.status === "investigation") markerColor = "#f39c12"; // investigation - orange
+                if (incident.status === "enforcement") markerColor = "#3498db"; // enforcement - blue
+                if (incident.status === "resolved") markerColor = "#2ecc71"; // resolved - green
+                
+                // Create marker
+                const marker = new google.maps.Marker({
+                    position: { lat: incident.lat, lng: incident.lng },
+                    map: map,
+                    title: incident.title,
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        fillColor: markerColor,
+                        fillOpacity: 0.9,
+                        strokeWeight: 1,
+                        strokeColor: "#ffffff",
+                        scale: 10
+                    },
+                    id: incident.id
+                });
+                
+                // Add click listener to show incident details
+                marker.addListener("click", () => {
+                    showIncidentDetails(incident);
+                    map.setCenter(marker.getPosition());
+                    map.setZoom(10);
+                });
+                
+                return marker;
+            });
+            
+            // Add filtering functionality
+            document.getElementById("incident-type").addEventListener("change", filterMarkers);
+            document.getElementById("incident-status").addEventListener("change", filterMarkers);
+            document.getElementById("incident-region").addEventListener("change", filterMarkers);
+            document.getElementById("incident-date").addEventListener("change", filterMarkers);
+            
+            function filterMarkers() {
+                const typeFilter = document.getElementById("incident-type").value;
+                const statusFilter = document.getElementById("incident-status").value;
+                
+                // Apply filters (simplified for demo)
+                markers.forEach((marker, i) => {
+                    const incident = incidents[i];
+                    let isVisible = true;
+                    
+                    if (typeFilter !== "all" && incident.type !== typeFilter) {
+                        isVisible = false;
+                    }
+                    
+                    if (statusFilter !== "all" && incident.status !== statusFilter) {
+                        isVisible = false;
+                    }
+                    
+                    marker.setVisible(isVisible);
+                });
+            }
+        }
+        
+        // Show incident details
+        function showIncidentDetails(incident) {
+            const detailsContainer = document.getElementById("incident-details");
+            const statusClass = `status-${incident.status}`;
+            
+            // Update details content
+            detailsContainer.innerHTML = `
+                <div class="incident-header">
+                    <h3>${incident.title}</h3>
+                    <span class="incident-status ${statusClass}">${incident.status.charAt(0).toUpperCase() + incident.status.slice(1)}</span>
+                </div>
+                <div class="incident-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Location</span>
+                        <span class="detail-value">${incident.location}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type</span>
+                        <span class="detail-value">${incident.type.charAt(0).toUpperCase() + incident.type.slice(1)} Mining</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Reported On</span>
+                        <span class="detail-value">${incident.reportedOn}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Scale</span>
+                        <span class="detail-value">${incident.scale}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Reported By</span>
+                        <span class="detail-value">${incident.reportedBy}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Case ID</span>
+                        <span class="detail-value">${incident.id}</span>
+                    </div>
+                </div>
+                <div class="incident-description">
+                    <p>${incident.description}</p>
+                </div>
+                <div class="incident-images">
+                    ${incident.images.map(img => `<img src="${img}" alt="Incident Image" class="incident-image">`).join('')}
+                </div>
+                <div class="incident-actions">
+                    <a href="#" class="btn btn-small">View Full Details</a>
+                    <a href="report.html" class="btn btn-small btn-outline">Report Additional Info</a>
+                </div>
+            `;
+            
+            // Show the details container
+            detailsContainer.style.display = "block";
+            
+            // Scroll to details
+            detailsContainer.scrollIntoView({ behavior: "smooth" });
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+            }
+            
+            // Update last updated time
+            function updateLastUpdated() {
+                const now = new Date();
+                const options = { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                };
+                document.getElementById('last-update-time').textContent = now.toLocaleDateString('en-IN', options);
+            }
+            
+            // Simulate real-time updates by updating the time every minute
+            updateLastUpdated();
+            setInterval(updateLastUpdated, 60000);
+        });
+    </script>
+</body>
+</html> 
