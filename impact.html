@@ -7,6 +7,77 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+    .page-hero {
+    background: linear-gradient(to right, #2E7D32, #054405);
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+}
+        /* Economic Impact Section Styles */
+.impact-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.stat-box {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.stat-description {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.4;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .impact-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-box {
+        min-height: 150px;
+        padding: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .stat-description {
+        font-size: 1rem;
+    }
+}
+    </style>
 </head>
 <body>
     <header>
@@ -536,4 +607,4 @@
         });
     </script>
 </body>
-</html> 
+</html>

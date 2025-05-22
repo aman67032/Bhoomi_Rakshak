@@ -9,6 +9,322 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <style>
+        :root {
+    --primary-color: #2E7D32;
+    --secondary-color: #4CAF50;
+    --accent-color: #FF5722;
+    --text-dark: #333333;
+    --text-light: #666666;
+    --white: #ffffff;
+    --gray-light: #f5f5f5;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Page Hero Section */
+.page-hero {
+    background: linear-gradient(135deg, var(--primary-color), #1b5e20);
+    color: var(--white);
+    padding: 4rem 0;
+    text-align: center;
+    border-radius: 0 0 2rem 2rem;
+}
+
+.page-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Legal Mining Introduction */
+.legal-mining-introduction {
+    padding: 4rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.underline {
+    height: 4px;
+    width: 60px;
+    background: var(--primary-color);
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+.intro-content {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.intro-text ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.intro-text li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.intro-text li:before {
+    content: '✓';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+.intro-image img {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.image-caption {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* Miners List */
+.miners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.miner-profile {
+    background: var(--white);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.miner-profile.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.miner-header {
+    padding: 1.5rem;
+    background: var(--gray-light);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.miner-logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.miner-title h3 {
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.minerals {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 0.2rem 0.8rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.miner-body {
+    padding: 1.5rem;
+}
+
+.miner-highlights {
+    margin: 1.5rem 0;
+}
+
+.highlight-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.highlight-icon {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.highlight-content h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-dark);
+}
+
+.website-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.website-link:hover {
+    color: var(--secondary-color);
+}
+
+/* Mining Operations */
+.operations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.operation-card {
+    background: var(--white);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.operation-card:hover {
+    transform: translateY(-5px);
+}
+
+.mineral-badge {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 0.2rem 0.8rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Certification Section */
+.certifications-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.certification-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.certification-logo img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+}
+
+.certification-criteria {
+    color: var(--text-light);
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+/* Mobile Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 3px;
+    background: var(--text-dark);
+    margin: 5px 0;
+    transition: var(--transition);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .intro-content {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-image {
+        order: -1;
+    }
+
+    .miners-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        padding: 1rem;
+        box-shadow: var(--shadow);
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 0.6s ease forwards;
+}
+    </style>
     <header>
         <nav class="container">
             <div class="logo">

@@ -8,6 +8,275 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
+      :root {
+    --primary-color: #4CAF50;
+    --primary-dark: #388E3C;
+    --text-dark: #333;
+    --text-light: #666;
+    --white: #ffffff;
+    --gray-light: #f5f5f5;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Page Hero Section */
+.page-hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--white);
+    padding: 4rem 0;
+    border-radius: 0 0 2rem 2rem;
+}
+
+.page-hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* About Introduction Section */
+.about-introduction {
+    padding: 3rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.underline {
+    height: 4px;
+    width: 60px;
+    background: var(--primary-color);
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.about-text ul {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.about-text li {
+    margin-bottom: 0.5rem;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.image-caption {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* Affected Regions Section */
+.regions-grid {
+    margin: 2rem 0;
+}
+
+.region-card {
+    background: var(--white);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.region-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.region-icon {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Industry Types Section */
+.industry-item {
+    margin-bottom: 2rem;
+    background: var(--white);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.industry-layout {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.industry-content {
+    flex: 2;
+}
+
+.industry-image {
+    flex: 1;
+}
+
+.industry-image img {
+    width: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+}
+
+/* Impact Levels */
+.impact-level {
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+.impact-level.high {
+    background: #ff6b6b;
+    color: var(--white);
+}
+
+.impact-level.medium {
+    background: #ffd93d;
+    color: #333;
+}
+
+.impact-level.low {
+    background: #6bff6b;
+    color: #333;
+}
+
+.impact-level.extreme {
+    background: #ff0000;
+    color: var(--white);
+}
+
+/* Economic Impact Section */
+.impact-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.stat-box {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.stat-description {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.4;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .industry-layout {
+        flex-direction: column;
+    }
+
+    .industry-image {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .stat-box {
+        padding: 1.5rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.pulse-animation {
+    animation: pulse 1s ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
         .industry-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -72,7 +341,7 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="#impact">Impact</a></li>
+                <li><a href="impact.html">Impact</a></li>
                 <li><a href="laws.html">Laws</a></li>
                 <li><a href="news.html">News</a></li>
                 <li><a href="tracking.html"><i class="fas fa-map-marker-alt"></i> Real-time Tracking</a></li>
@@ -431,4 +700,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
