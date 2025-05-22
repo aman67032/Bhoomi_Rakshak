@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Illegal Mining - Environmental Protection Rights in India</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="LOGO.png" alt="Bhoomi Rakshak Logo">
+                <span>Bhoomi Rakshak</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="laws.html">Laws</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="tracking.html"><i class="fas fa-map-marker-alt"></i> Real-time Tracking</a></li>
+                <li><a href="legal-miners.html">Legal Miners</a></li>
+                <li><a href="report.html">Report</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Signup</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="page-hero">
+            <div class="page-hero-content">
+                <h1>Report Illegal Mining</h1>
+                <p class="subtitle">Your action today can help protect our environment for generations to come</p>
+            </div>
+        </section>
+
+        <section class="report-intro">
+            <div class="section-header">
+                <h2>Take Action Now</h2>
+                <div class="underline"></div>
+                <p class="section-intro">Reporting illegal mining is a powerful step toward environmental protection. Your information will be handled confidentially and can make a real difference.</p>
+            </div>
+            
+            <div class="report-types">
+                <div class="report-type-card active" data-tab="evidence">
+                    <div class="type-icon"><i class="fas fa-file-upload"></i></div>
+                    <h3>Submit Evidence</h3>
+                    <p>Upload photos, videos, or documents of illegal mining activities</p>
+                </div>
+                
+                <div class="report-type-card" data-tab="location">
+                    <div class="type-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3>Find Authorities</h3>
+                    <p>Locate the nearest police station or forest office</p>
+                </div>
+                
+                <div class="report-type-card" data-tab="anonymous">
+                    <div class="type-icon"><i class="fas fa-user-secret"></i></div>
+                    <h3>Anonymous Tip</h3>
+                    <p>Submit information without revealing your identity</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="report-form-container">
+            <div class="tab-content active" id="evidence-tab">
+                <div class="section-header">
+                    <h2>Submit Evidence</h2>
+                    <div class="underline"></div>
+                    <p class="section-intro">Upload photos, videos, or documents securely to our cloud storage</p>
+                </div>
+                
+                <div class="evidence-upload">
+                    <div class="upload-area">
+                        <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                        <h3>Drag & Drop Files Here</h3>
+                        <p>or</p>
+                        <label for="file-upload" class="btn btn-primary">Select Files</label>
+                        <input type="file" id="file-upload" multiple style="display: none;">
+                        <p class="file-types">Supported formats: JPG, PNG, MP4, PDF (Max 50MB)</p>
+                    </div>
+                    
+                    <div class="upload-preview">
+                        <h3>Uploaded Files</h3>
+                        <div class="upload-list" id="upload-list">
+                            <!-- Uploaded files will appear here -->
+                            <div class="no-files">No files uploaded yet</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="report-details">
+                    <h3>Incident Details</h3>
+                    <form id="evidence-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="incident-location">Location</label>
+                                <input type="text" id="incident-location" placeholder="Enter location or use map to pin">
+                                <button type="button" class="btn btn-outline" id="use-current-location">
+                                    <i class="fas fa-location-arrow"></i> Use My Location
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <label for="incident-date">Date of Incident</label>
+                                <input type="date" id="incident-date">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="incident-description">Description</label>
+                            <textarea id="incident-description" rows="4" placeholder="Please describe what you observed, including details about the mining activities, equipment used, number of people involved, etc."></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">Your Name (Optional)</label>
+                                <input type="text" id="contact-name" placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-method">Preferred Contact Method (Optional)</label>
+                                <input type="text" id="contact-method" placeholder="Email or phone number">
+                            </div>
+                        </div>
+                        
+                        <div class="form-privacy">
+                            <input type="checkbox" id="privacy-consent">
+                            <label for="privacy-consent">I understand that this information will be shared with relevant authorities and consent to the processing of my data in accordance with the <a href="#">Privacy Policy</a>.</label>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Submit Report</button>
+                            <button type="button" class="btn btn-outline">Save Draft</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="location-tab">
+                <div class="section-header">
+                    <h2>Find Nearest Authorities</h2>
+                    <div class="underline"></div>
+                    <p class="section-intro">Locate the nearest police station, forest office, or mining department office to report illegal mining activities in person</p>
+                </div>
+                
+                <div class="authority-finder">
+                    <div class="finder-search">
+                        <div class="search-controls">
+                            <input type="text" id="authority-location" placeholder="Enter your location">
+                            <button class="btn btn-primary" id="find-authorities">Find Authorities</button>
+                            <button class="btn btn-outline" id="use-current-location-auth">
+                                <i class="fas fa-location-arrow"></i> Use My Location
+                            </button>
+                        </div>
+                        
+                        <div class="authority-filters">
+                            <div class="filter-label">Show:</div>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="checkbox" checked value="police"> Police Stations
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" checked value="forest"> Forest Offices
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" checked value="mining"> Mining Dept. Offices
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="finder-result">
+                        <div class="map-container" id="authority-map">
+                            <!-- Google Map will be loaded here -->
+                            <div class="map-placeholder">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <p>Map loading... Please enter your location to find nearby authorities</p>
+                            </div>
+                        </div>
+                        
+                        <div class="authority-list">
+                            <h3>Nearby Authorities</h3>
+                            <div class="authority-results" id="authority-results">
+                                <!-- Results will be populated here -->
+                                <div class="no-results">Enter your location to see results</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="anonymous-tab">
+                <div class="section-header">
+                    <h2>Anonymous Reporting</h2>
+                    <div class="underline"></div>
+                    <p class="section-intro">Submit information without revealing your identity. Your IP address and personal information will not be logged.</p>
+                </div>
+                
+                <div class="anonymous-form">
+                    <div class="anonymous-info">
+                        <div class="info-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="info-content">
+                            <h3>Your Privacy Is Protected</h3>
+                            <p>When you submit an anonymous tip:</p>
+                            <ul>
+                                <li>Your personal information is not collected</li>
+                                <li>Your IP address is not stored</li>
+                                <li>No cookies are used to track your identity</li>
+                                <li>You can provide a temporary contact method if you wish to receive updates</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <form id="anonymous-form">
+                        <div class="form-group">
+                            <label for="anon-incident-location">Location of Illegal Mining</label>
+                            <input type="text" id="anon-incident-location" placeholder="Please be as specific as possible about the location">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="anon-incident-details">Details of Illegal Mining Activities</label>
+                            <textarea id="anon-incident-details" rows="5" placeholder="Please provide as much detail as possible about the activities you observed"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="anon-responsible-parties">Responsible Parties (if known)</label>
+                            <input type="text" id="anon-responsible-parties" placeholder="Names of individuals or organizations involved (if known)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="anon-temp-contact">Temporary Contact Code (Optional)</label>
+                            <input type="text" id="anon-temp-contact" placeholder="Enter a code word or phrase if you wish to receive updates">
+                            <p class="field-note">This allows you to check for updates using your code without revealing your identity.</p>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Submit Anonymous Tip</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="reporting-faq">
+            <div class="section-header">
+                <h2>Reporting FAQ</h2>
+                <div class="underline"></div>
+                <p class="section-intro">Common questions about reporting illegal mining activities</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What happens after I submit a report?</h3>
+                        <div class="toggle-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>After submission, your report is reviewed by our team and then forwarded to the appropriate authorities, which may include the local police, forest department, mining department, or pollution control board. If you provided contact information, you may receive updates on the action taken.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is it safe to report illegal mining?</h3>
+                        <div class="toggle-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Your safety is paramount. We recommend reporting anonymously if you have concerns about your safety. Never confront those involved in illegal activities directly. Our system is designed to protect your identity, especially when using the anonymous reporting option.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What evidence is most helpful?</h3>
+                        <div class="toggle-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The most valuable evidence includes photos or videos of the illegal mining activity, machinery being used, vehicle license plates, and any identifying information about the operators. Location details with GPS coordinates are extremely helpful. Any documentation of environmental damage is also important.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I track the status of my report?</h3>
+                        <div class="toggle-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, if you provided contact information or a temporary contact code (for anonymous reports), you can check the status of your report by logging in or using your temporary code. We will also send updates to your provided contact method as the case progresses.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="success-reporting">
+            <div class="section-header">
+                <h2>Impact of Citizen Reporting</h2>
+                <div class="underline"></div>
+                <p class="section-intro">How public reports have led to successful enforcement actions</p>
+            </div>
+            
+            <div class="success-stats">
+                <div class="stat-card">
+                    <div class="stat-number">1,200+</div>
+                    <div class="stat-label">Reports Submitted</div>
+                    <div class="stat-period">In the past year</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">78%</div>
+                    <div class="stat-label">Led to Investigations</div>
+                    <div class="stat-period">Of all verified reports</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">42</div>
+                    <div class="stat-label">Operations Shut Down</div>
+                    <div class="stat-period">Due to citizen reports</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">₹8.2 Cr</div>
+                    <div class="stat-label">In Fines Collected</div>
+                    <div class="stat-period">From reported violations</div>
+                </div>
+            </div>
+            
+            <div class="success-story-highlight">
+                <div class="story-image">
+                    <img src="images/reporting-success.jpg" alt="Citizen Reporting Success">
+                </div>
+                <div class="story-content">
+                    <h3>"One Report Made the Difference"</h3>
+                    <p>In April 2023, a single report from a local resident in Jharkhand, complete with photos and location data, led to the discovery of a major illegal mining operation. Authorities seized equipment worth ₹3.5 crore and restored the affected forest area. This case demonstrates how one concerned citizen can create significant positive impact.</p>
+                    <a href="#" class="btn btn-outline">Read More Success Stories</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+       <footer class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="LOGO.png" alt="Bhoomi Rakshak Logo">
+                <span>Bhoomi Rakshak</span>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#impact">Impact</a></li>
+                        <li><a href="#laws">Laws</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="tracking.html">Real-time Tracking</a></li>
+                        <li><a href="#report">Report</a></li>
+                    </ul>
+                </div>
+                <div class="link-group">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Fact Sheets</a></li>
+                        <li><a href="#">Legal Guide</a></li>
+                        <li><a href="#">Research Papers</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="link-group">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Bhoomi Rakshak. All rights reserved.</p>
+            <p>Committed to protecting our Earth from illegal mining activities.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+            }
+            
+            // Tab switching functionality
+            const reportTypeCards = document.querySelectorAll('.report-type-card');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            reportTypeCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const tabId = card.getAttribute('data-tab') + '-tab';
+                    
+                    // Update active card
+                    reportTypeCards.forEach(c => c.classList.remove('active'));
+                    card.classList.add('active');
+                    
+                    // Show active tab
+                    tabContents.forEach(tab => tab.classList.remove('active'));
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // File upload preview
+            const fileInput = document.getElementById('file-upload');
+            const uploadList = document.getElementById('upload-list');
+            
+            if (fileInput) {
+                fileInput.addEventListener('change', function() {
+                    // Clear "No files" message
+                    uploadList.innerHTML = '';
+                    
+                    // Display file preview
+                    for(let i = 0; i < this.files.length; i++) {
+                        const file = this.files[i];
+                        const fileItem = document.createElement('div');
+                        fileItem.className = 'upload-item';
+                        
+                        // Add appropriate icon based on file type
+                        let icon = 'fa-file';
+                        if (file.type.startsWith('image/')) icon = 'fa-file-image';
+                        if (file.type.startsWith('video/')) icon = 'fa-file-video';
+                        if (file.type === 'application/pdf') icon = 'fa-file-pdf';
+                        
+                        fileItem.innerHTML = `
+                            <div class="file-icon"><i class="fas ${icon}"></i></div>
+                            <div class="file-info">
+                                <div class="file-name">${file.name}</div>
+                                <div class="file-size">${(file.size / (1024 * 1024)).toFixed(2)} MB</div>
+                            </div>
+                            <div class="file-actions">
+                                <button class="delete-file" title="Remove"><i class="fas fa-times"></i></button>
+                            </div>
+                        `;
+                        
+                        uploadList.appendChild(fileItem);
+                    }
+                    
+                    // Add delete functionality
+                    const deleteButtons = document.querySelectorAll('.delete-file');
+                    deleteButtons.forEach(button => {
+                        button.addEventListener('click', function() {
+                            this.closest('.upload-item').remove();
+                            
+                            // Show "No files" message if all files are removed
+                            if (uploadList.children.length === 0) {
+                                uploadList.innerHTML = '<div class="no-files">No files uploaded yet</div>';
+                            }
+                        });
+                    });
+                });
+            }
+            
+            // FAQ toggle
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    item.classList.toggle('active');
+                    
+                    const toggleIcon = item.querySelector('.toggle-icon i');
+                    if (item.classList.contains('active')) {
+                        toggleIcon.classList.remove('fa-plus');
+                        toggleIcon.classList.add('fa-minus');
+                    } else {
+                        toggleIcon.classList.remove('fa-minus');
+                        toggleIcon.classList.add('fa-plus');
+                    }
+                });
+            });
+            
+            // Google Maps API placeholder functionality
+            // In a real implementation, this would use the actual Google Maps API
+            const findAuthoritiesBtn = document.getElementById('find-authorities');
+            const authorityResults = document.getElementById('authority-results');
+            
+            if (findAuthoritiesBtn) {
+                findAuthoritiesBtn.addEventListener('click', function() {
+                    const location = document.getElementById('authority-location').value;
+                    
+                    if (location) {
+                        // This would normally call the Google Maps API
+                        // For this demo, we'll just show some placeholder results
+                        authorityResults.innerHTML = `
+                            <div class="authority-item">
+                                <div class="authority-icon"><i class="fas fa-building"></i></div>
+                                <div class="authority-details">
+                                    <h4>Central Police Station</h4>
+                                    <p class="authority-address">123 Main St, Near ${location}</p>
+                                    <p class="authority-distance">1.2 km away</p>
+                                    <div class="authority-contact">
+                                        <a href="tel:+911234567890" class="btn btn-small"><i class="fas fa-phone"></i> Call</a>
+                                        <a href="#" class="btn btn-small"><i class="fas fa-directions"></i> Directions</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="authority-item">
+                                <div class="authority-icon"><i class="fas fa-tree"></i></div>
+                                <div class="authority-details">
+                                    <h4>District Forest Office</h4>
+                                    <p class="authority-address">456 Forest Road, ${location} District</p>
+                                    <p class="authority-distance">3.5 km away</p>
+                                    <div class="authority-contact">
+                                        <a href="tel:+911234567891" class="btn btn-small"><i class="fas fa-phone"></i> Call</a>
+                                        <a href="#" class="btn btn-small"><i class="fas fa-directions"></i> Directions</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="authority-item">
+                                <div class="authority-icon"><i class="fas fa-hard-hat"></i></div>
+                                <div class="authority-details">
+                                    <h4>Mining Department Regional Office</h4>
+                                    <p class="authority-address">789 Government Complex, ${location}</p>
+                                    <p class="authority-distance">5.8 km away</p>
+                                    <div class="authority-contact">
+                                        <a href="tel:+911234567892" class="btn btn-small"><i class="fas fa-phone"></i> Call</a>
+                                        <a href="#" class="btn btn-small"><i class="fas fa-directions"></i> Directions</a>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

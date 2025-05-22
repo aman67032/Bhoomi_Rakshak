@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Register - Environmental Protection Rights in India</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .auth-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 450px;
+        }
+        
+        .auth-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .auth-header h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .auth-header p {
+            color: #7f8c8d;
+            font-size: 0.95em;
+        }
+        
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .auth-tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px 0;
+            cursor: pointer;
+            font-weight: 600;
+            color: #7f8c8d;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .auth-tab.active {
+            color: #27ae60;
+        }
+        
+        .auth-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #27ae60;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            border-color: #27ae60;
+            outline: none;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+        
+        .remember-me {
+            display: flex;
+            align-items: center;
+        }
+        
+        .remember-me input {
+            margin-right: 8px;
+        }
+        
+        .forgot-password {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+        
+        .btn-auth {
+            width: 100%;
+            padding: 12px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .btn-auth:hover {
+            background: #219a52;
+        }
+        
+        .social-login {
+            margin-top: 25px;
+            text-align: center;
+        }
+        
+        .social-login p {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .social-login p::before,
+        .social-login p::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            height: 1px;
+            width: 30%;
+            background: #ecf0f1;
+        }
+        
+        .social-login p::before {
+            left: 0;
+        }
+        
+        .social-login p::after {
+            right: 0;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f8f9fa;
+            color: #333;
+            font-size: 1.2em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon.google {
+            color: #DB4437;
+        }
+        
+        .social-icon.facebook {
+            color: #4267B2;
+        }
+        
+        .social-icon.twitter {
+            color: #1DA1F2;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        
+        .auth-footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        .auth-footer a {
+            color: #27ae60;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .password-field {
+            position: relative;
+        }
+        
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #7f8c8d;
+        }
+        
+        .password-requirements {
+            margin-top: 5px;
+            font-size: 0.85em;
+            color: #7f8c8d;
+        }
+        
+        .requirement {
+            display: flex;
+            align-items: center;
+            margin-top: 3px;
+        }
+        
+        .requirement i {
+            margin-right: 5px;
+            font-size: 0.9em;
+        }
+        
+        .requirement.valid i {
+            color: #27ae60;
+        }
+        
+        .requirement.invalid i {
+            color: #e74c3c;
+        }
+        
+        @media (max-width: 768px) {
+            .auth-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .auth-card {
+                max-width: 100%;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Bhoomi Rakshak Logo">
+                <span>Bhoomi Rakshak</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="impact.html">Impact</a></li>
+                <li><a href="laws.html">Laws</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="tracking.html"><i class="fas fa-map-marker-alt"></i> Real-time Tracking</a></li>
+                <li><a href="legal-miners.html">Legal Miners</a></li>
+                <li><a href="report.html">Report</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" class="active">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="page-hero">
+            <div class="page-hero-content">
+                <h1>Join Our Community</h1>
+                <p class="subtitle">Access personalized tools and contribute to environmental protection efforts</p>
+            </div>
+        </section>
+
+        <section class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h2>Account Access</h2>
+                    <p>Login or create an account to track reports, save preferences, and connect with other activists</p>
+                </div>
+                
+                <div class="auth-tabs">
+                    <div class="auth-tab active" data-tab="login">Login</div>
+                    <div class="auth-tab" data-tab="register">Register</div>
+                </div>
+                
+                <div class="tab-content active" id="login-tab">
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="login-email">Email Address</label>
+                            <input type="email" id="login-email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <div class="password-field">
+                                <input type="password" id="login-password" required>
+                                <span class="password-toggle" data-target="login-password">
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="remember-forgot">
+                            <label class="remember-me">
+                                <input type="checkbox" id="remember">
+                                Remember me
+                            </label>
+                            <a href="#" class="forgot-password">Forgot password?</a>
+                        </div>
+                        
+                        <button type="submit" class="btn-auth">Login</button>
+                    </form>
+                    
+                    <div class="social-login">
+                        <p>Or login with</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon google"><i class="fab fa-google"></i></a>
+                            <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="auth-footer">
+                        <p>Don't have an account? <a href="#" class="switch-tab" data-tab="register">Register Now</a></p>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="register-tab">
+                    <form id="register-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="register-fname">First Name</label>
+                                <input type="text" id="register-fname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-lname">Last Name</label>
+                                <input type="text" id="register-lname" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-email">Email Address</label>
+                            <input type="email" id="register-email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-password">Create Password</label>
+                            <div class="password-field">
+                                <input type="password" id="register-password" required>
+                                <span class="password-toggle" data-target="register-password">
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                            <div class="password-requirements">
+                                <div class="requirement" id="req-length">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span>At least 8 characters</span>
+                                </div>
+                                <div class="requirement" id="req-uppercase">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span>At least 1 uppercase letter</span>
+                                </div>
+                                <div class="requirement" id="req-lowercase">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span>At least 1 lowercase letter</span>
+                                </div>
+                                <div class="requirement" id="req-number">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span>At least 1 number</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-confirm">Confirm Password</label>
+                            <div class="password-field">
+                                <input type="password" id="register-confirm" required>
+                                <span class="password-toggle" data-target="register-confirm">
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-location">Location (State)</label>
+                            <input type="text" id="register-location" placeholder="Optional">
+                        </div>
+                        
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="terms" required>
+                            <label for="terms">I agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></label>
+                        </div>
+                        
+                        <button type="submit" class="btn-auth">Register</button>
+                    </form>
+                    
+                    <div class="social-login">
+                        <p>Or register with</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon google"><i class="fab fa-google"></i></a>
+                            <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="auth-footer">
+                        <p>Already have an account? <a href="#" class="switch-tab" data-tab="login">Login Instead</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="auth-info">
+                <div class="section-header">
+                    <h2>Benefits of Joining</h2>
+                    <div class="underline"></div>
+                </div>
+                
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Make Your Voice Heard</h3>
+                            <p>Submit and track reports of illegal mining activities, with the ability to receive updates on actions taken.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Connect With Community</h3>
+                            <p>Join forums to connect with other environmental activists and affected community members to share experiences and resources.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Personalized Alerts</h3>
+                            <p>Receive customized notifications about illegal mining activities and environmental updates in your region of interest.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Access Exclusive Resources</h3>
+                            <p>Get access to specialized research papers, legal guides, and educational materials to support your advocacy work.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Enhanced Privacy Options</h3>
+                            <p>Registered users can choose anonymous reporting while still being able to track the progress of their reports.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-box">
+                    <div class="quote"><i class="fas fa-quote-left"></i></div>
+                    <p>"Becoming a member of Bhoomi Rakshak connected me with others in my village who were also concerned about the illegal quarrying. Together, we gathered evidence and submitted reports that led to enforcement action."</p>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial-user.jpg" alt="User Testimonial">
+                        <div>
+                            <h4>Lakshmi Patel</h4>
+                            <p>Community Activist, Gujarat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="logo-white.png" alt="Bhoomi Rakshak Logo">
+                <span>Bhoomi Rakshak</span>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="impact.html">Impact</a></li>
+                        <li><a href="laws.html">Laws</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="tracking.html">Real-time Tracking</a></li>
+                        <li><a href="report.html">Report</a></li>
+                    </ul>
+                </div>
+                <div class="link-group">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Fact Sheets</a></li>
+                        <li><a href="#">Legal Guide</a></li>
+                        <li><a href="#">Research Papers</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="link-group">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Bhoomi Rakshak. All rights reserved.</p>
+            <p class="social-awareness-message">"Protect Nature, Preserve the Future"</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+            }
+            
+            // Tab switching functionality
+            const authTabs = document.querySelectorAll('.auth-tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const switchTabs = document.querySelectorAll('.switch-tab');
+            
+            function switchTab(tabId) {
+                authTabs.forEach(tab => {
+                    if (tab.dataset.tab === tabId) {
+                        tab.classList.add('active');
+                    } else {
+                        tab.classList.remove('active');
+                    }
+                });
+                
+                tabContents.forEach(content => {
+                    if (content.id === `${tabId}-tab`) {
+                        content.classList.add('active');
+                    } else {
+                        content.classList.remove('active');
+                    }
+                });
+            }
+            
+            authTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    switchTab(tab.dataset.tab);
+                });
+            });
+            
+            switchTabs.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    switchTab(link.dataset.tab);
+                });
+            });
+            
+            // Password show/hide functionality
+            const passwordToggles = document.querySelectorAll('.password-toggle');
+            
+            passwordToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const targetId = toggle.dataset.target;
+                    const passwordInput = document.getElementById(targetId);
+                    const icon = toggle.querySelector('i');
+                    
+                    if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        icon.classList.remove('fa-eye');
+                        icon.classList.add('fa-eye-slash');
+                    } else {
+                        passwordInput.type = 'password';
+                        icon.classList.remove('fa-eye-slash');
+                        icon.classList.add('fa-eye');
+                    }
+                });
+            });
+            
+            // Password strength validation
+            const passwordInput = document.getElementById('register-password');
+            const requirementLength = document.getElementById('req-length');
+            const requirementUppercase = document.getElementById('req-uppercase');
+            const requirementLowercase = document.getElementById('req-lowercase');
+            const requirementNumber = document.getElementById('req-number');
+            
+            if (passwordInput) {
+                passwordInput.addEventListener('input', function() {
+                    const password = this.value;
+                    
+                    // Check length
+                    if (password.length >= 8) {
+                        requirementLength.classList.add('valid');
+                        requirementLength.classList.remove('invalid');
+                        requirementLength.querySelector('i').classList.remove('fa-times-circle');
+                        requirementLength.querySelector('i').classList.add('fa-check-circle');
+                    } else {
+                        requirementLength.classList.remove('valid');
+                        requirementLength.classList.add('invalid');
+                        requirementLength.querySelector('i').classList.remove('fa-check-circle');
+                        requirementLength.querySelector('i').classList.add('fa-times-circle');
+                    }
+                    
+                    // Check uppercase
+                    if (/[A-Z]/.test(password)) {
+                        requirementUppercase.classList.add('valid');
+                        requirementUppercase.classList.remove('invalid');
+                        requirementUppercase.querySelector('i').classList.remove('fa-times-circle');
+                        requirementUppercase.querySelector('i').classList.add('fa-check-circle');
+                    } else {
+                        requirementUppercase.classList.remove('valid');
+                        requirementUppercase.classList.add('invalid');
+                        requirementUppercase.querySelector('i').classList.remove('fa-check-circle');
+                        requirementUppercase.querySelector('i').classList.add('fa-times-circle');
+                    }
+                    
+                    // Check lowercase
+                    if (/[a-z]/.test(password)) {
+                        requirementLowercase.classList.add('valid');
+                        requirementLowercase.classList.remove('invalid');
+                        requirementLowercase.querySelector('i').classList.remove('fa-times-circle');
+                        requirementLowercase.querySelector('i').classList.add('fa-check-circle');
+                    } else {
+                        requirementLowercase.classList.remove('valid');
+                        requirementLowercase.classList.add('invalid');
+                        requirementLowercase.querySelector('i').classList.remove('fa-check-circle');
+                        requirementLowercase.querySelector('i').classList.add('fa-times-circle');
+                    }
+                    
+                    // Check number
+                    if (/[0-9]/.test(password)) {
+                        requirementNumber.classList.add('valid');
+                        requirementNumber.classList.remove('invalid');
+                        requirementNumber.querySelector('i').classList.remove('fa-times-circle');
+                        requirementNumber.querySelector('i').classList.add('fa-check-circle');
+                    } else {
+                        requirementNumber.classList.remove('valid');
+                        requirementNumber.classList.add('invalid');
+                        requirementNumber.querySelector('i').classList.remove('fa-check-circle');
+                        requirementNumber.querySelector('i').classList.add('fa-times-circle');
+                    }
+                });
+            }
+            
+            // Form submission handling
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // In a real implementation, you would send the login data to a server
+                    // For this demo, we'll just simulate a successful login
+                    alert('Login successful! Redirecting to dashboard...');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                });
+            }
+            
+            if (registerForm) {
+                registerForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Check password confirmation
+                    const password = document.getElementById('register-password').value;
+                    const confirmPassword = document.getElementById('register-confirm').value;
+                    
+                    if (password !== confirmPassword) {
+                        alert('Passwords do not match!');
+                        return;
+                    }
+                    
+                    // In a real implementation, you would send the registration data to a server
+                    // For this demo, we'll just simulate a successful registration
+                    alert('Registration successful! Please check your email to verify your account.');
+                    switchTab('login');
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

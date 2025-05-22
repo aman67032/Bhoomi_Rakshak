@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - Environmental Protection Rights in India</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="LOGO.png" alt="Bhoomi Rakshak Logo">
+                <span>Bhoomi Rakshak</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="laws.html">Laws</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="tracking.html"><i class="fas fa-map-marker-alt"></i> Real-time Tracking</a></li>
+                <li><a href="legal-miners.html">Legal Miners</a></li>
+                <li><a href="report.html">Report</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Signup</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="page-hero">
+            <div class="page-hero-content">
+                <h1>Latest News & Updates</h1>
+                <p class="subtitle">Stay informed about illegal mining incidents, enforcement actions, and environmental protection initiatives</p>
+            </div>
+        </section>
+
+        <section class="news-filters">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="news-category">Category:</label>
+                    <select id="news-category">
+                        <option value="all">All Categories</option>
+                        <option value="incidents">Illegal Mining Incidents</option>
+                        <option value="enforcement">Enforcement Actions</option>
+                        <option value="policy">Policy Updates</option>
+                        <option value="community">Community Initiatives</option>
+                        <option value="success">Success Stories</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="news-region">Region:</label>
+                    <select id="news-region">
+                        <option value="all">All India</option>
+                        <option value="north">North India</option>
+                        <option value="south">South India</option>
+                        <option value="east">East India</option>
+                        <option value="west">West India</option>
+                        <option value="central">Central India</option>
+                        <option value="northeast">Northeast India</option>
+                    </select>
+                </div>
+                <div class="search-group">
+                    <input type="text" id="news-search" placeholder="Search news...">
+                    <button class="btn-search"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="news-featured">
+            <div class="featured-news-card">
+                <div class="featured-image">
+                    <img src="images/news-featured.jpg" alt="Supreme Court Hearing on Mining Regulations">
+                    <div class="featured-tag">Breaking News</div>
+                </div>
+                <div class="featured-content">
+                    <div class="news-meta">
+                        <span class="news-date">June 15, 2023</span>
+                        <span class="news-category">Policy Updates</span>
+                    </div>
+                    <h2>Supreme Court Orders Stricter Enforcement of Mining Regulations in Protected Areas</h2>
+                    <p>In a landmark judgment, the Supreme Court of India has directed all state governments to implement stricter monitoring and enforcement of mining regulations in and around protected forest areas and wildlife sanctuaries.</p>
+                    <p>The court has mandated the formation of special task forces in each state to conduct regular inspections and take immediate action against illegal mining operations within a 10km radius of ecologically sensitive zones.</p>
+                    <a href="#" class="btn btn-primary">Read Full Story</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="news-grid">
+            <div class="section-header">
+                <h2>Recent News</h2>
+                <div class="underline"></div>
+            </div>
+            
+            <div class="news-container">
+                <!-- News Item 1 -->
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="images/news1.jpg" alt="Mining Operation Shutdown">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">June 10, 2023</span>
+                            <span class="news-category">Enforcement Actions</span>
+                        </div>
+                        <h3>Major Illegal Mining Operation Shut Down in Jharkhand</h3>
+                        <p>Authorities have successfully closed a large-scale illegal coal mining operation in Dhanbad district that had been operating for over two years undetected. Equipment worth approximately ₹4.5 crore was seized.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- News Item 2 -->
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="images/news2.jpg" alt="Community Protest">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">June 8, 2023</span>
+                            <span class="news-category">Community Initiatives</span>
+                        </div>
+                        <h3>Tribal Communities Rally Against Illegal Mining in Chhattisgarh</h3>
+                        <p>Over 5,000 members of tribal communities from 32 villages gathered in Raipur to protest against illegal mining activities encroaching on their ancestral lands and causing widespread environmental damage.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- News Item 3 -->
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="images/news3.jpg" alt="Satellite Monitoring">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">June 5, 2023</span>
+                            <span class="news-category">Technology</span>
+                        </div>
+                        <h3>ISRO Launches Advanced Satellite Monitoring System for Mining Activity</h3>
+                        <p>The Indian Space Research Organisation has deployed a new satellite monitoring system capable of detecting mining activities in real-time with 1-meter resolution, helping authorities identify illegal operations more quickly.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- News Item 4 -->
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="images/news4.jpg" alt="Water Pollution">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">June 2, 2023</span>
+                            <span class="news-category">Environmental Impact</span>
+                        </div>
+                        <h3>Study Reveals Alarming Levels of Heavy Metal Contamination in Rivers Near Mining Sites</h3>
+                        <p>A comprehensive study conducted by environmental researchers has found dangerous levels of lead, mercury, and arsenic in water sources surrounding illegal mining operations in five states.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- News Item 5 -->
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="images/news5.jpg" alt="Law Enforcement">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">May 30, 2023</span>
+                            <span class="news-category">Enforcement Actions</span>
+                        </div>
+                        <h3>Special Task Force Arrests 12 in Connection with Illegal Mining Syndicate</h3>
+                        <p>Following a month-long investigation, authorities have arrested 12 individuals, including two government officials, for their involvement in a large-scale illegal mining syndicate operating across Karnataka and Goa.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- News Item 6 -->
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="images/news6.jpg" alt="Policy Meeting">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">May 27, 2023</span>
+                            <span class="news-category">Policy Updates</span>
+                        </div>
+                        <h3>Ministry of Mines Proposes Amendments to Strengthen Penalties for Illegal Mining</h3>
+                        <p>The government has proposed significant amendments to the Mines and Minerals Act that would increase penalties for illegal mining activities by up to 300% and introduce mandatory minimum prison sentences.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <span class="page-gap">...</span>
+                <a href="#" class="page-link">8</a>
+                <a href="#" class="page-link next">Next <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </section>
+
+        <section class="news-subscribe">
+            <div class="subscribe-content">
+                <div class="subscribe-icon"><i class="fas fa-envelope"></i></div>
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter to receive the latest news and updates on illegal mining issues and environmental protection efforts in India.</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+  
+       <footer class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="LOGO.png" alt="Bhoomi Rakshak Logo">
+                <span>Bhoomi Rakshak</span>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#impact">Impact</a></li>
+                        <li><a href="#laws">Laws</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="tracking.html">Real-time Tracking</a></li>
+                        <li><a href="#report">Report</a></li>
+                    </ul>
+                </div>
+                <div class="link-group">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Fact Sheets</a></li>
+                        <li><a href="#">Legal Guide</a></li>
+                        <li><a href="#">Research Papers</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="link-group">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Bhoomi Rakshak. All rights reserved.</p>
+            <p>Committed to protecting our Earth from illegal mining activities.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+            }
+            
+            // News filtering functionality
+            const newsCategory = document.getElementById('news-category');
+            const newsRegion = document.getElementById('news-region');
+            const newsSearch = document.getElementById('news-search');
+            const newsCards = document.querySelectorAll('.news-card');
+            
+            // Simple filter example (would be more complex in production)
+            function filterNews() {
+                const categoryValue = newsCategory.value;
+                const regionValue = newsRegion.value;
+                const searchValue = newsSearch.value.toLowerCase();
+                
+                newsCards.forEach(card => {
+                    const category = card.querySelector('.news-category').textContent.toLowerCase();
+                    const content = card.querySelector('.news-content').textContent.toLowerCase();
+                    
+                    // Simple filtering logic - would be more sophisticated in real implementation
+                    let categoryMatch = categoryValue === 'all' || category.includes(categoryValue.toLowerCase());
+                    let regionMatch = regionValue === 'all' || content.includes(regionValue.toLowerCase());
+                    let searchMatch = searchValue === '' || content.includes(searchValue);
+                    
+                    if (categoryMatch && regionMatch && searchMatch) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Add event listeners for filtering
+            if (newsCategory) newsCategory.addEventListener('change', filterNews);
+            if (newsRegion) newsRegion.addEventListener('change', filterNews);
+            if (newsSearch) {
+                newsSearch.addEventListener('input', filterNews);
+                document.querySelector('.btn-search').addEventListener('click', filterNews);
+            }
+            
+            // Pagination functionality
+            const pageLinks = document.querySelectorAll('.page-link');
+            
+            pageLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    pageLinks.forEach(pl => pl.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // In a real implementation, this would fetch the next page of news
+                    // For now, we'll just scroll to the top of the news section
+                    document.querySelector('.news-grid').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            // Newsletter subscription
+            const subscribeForm = document.querySelector('.subscribe-form');
+            
+            if (subscribeForm) {
+                subscribeForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for subscribing to our newsletter!');
+                    this.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html> 
