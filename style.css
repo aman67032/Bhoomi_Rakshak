@@ -1475,7 +1475,6 @@ footer::before {
   font-size: 0.9rem;
   margin-bottom: 10px;
 }
-<<<<<<< HEAD
 .footer-content {
                                     display: flex;
                                     justify-content: space-between;
@@ -1487,8 +1486,6 @@ footer::before {
                                     color: #555;
 
                                 }
-=======
->>>>>>> fdb4edd3a4e24e1200c1ff67b741df735e41c278
 
 /* Responsive Styles */
 @media (max-width: 1200px) {
@@ -3049,268 +3046,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 } 
 
-<<<<<<< HEAD
-=======
-/* Legal Miners Section */
-.legal-miners-section {
-    padding: 80px 0;
-    background-color: var(--light-bg);
-    position: relative;
-    z-index: 1;
-}
-
-.legal-miners-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='%232ecc71' fill-opacity='0.05'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h-40V0h40v40z'/%3E%3C/g%3E%3C/svg%3E");
-    z-index: -1;
-    opacity: 0.6;
-}
-
-.legal-miners-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 50px;
-    align-items: center;
-}
-
-.legal-miners-intro {
-    padding-right: 20px;
-}
-
-.legal-miners-intro p {
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
-    line-height: 1.7;
-}
-
-.legal-miners-showcase {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 30px;
-}
-
-.legal-miner-card {
-    background: var(--white);
-    border-radius: var(--border-radius);
-    padding: 25px;
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-    height: 100%;
-}
-
-.legal-miner-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: var(--primary-color);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-.legal-miner-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
-}
-
-.legal-miner-card:hover::before {
-    transform: scaleX(1);
-}
-
-.miner-logo {
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
-}
-
-.miner-logo img {
-    max-height: 100%;
-    object-fit: contain;
-}
-
-.legal-miner-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: var(--text-dark);
-    text-align: center;
-}
-
-.legal-miner-card p {
-    margin-bottom: 15px;
-    color: var(--text-light);
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-.miner-stats {
-    margin-top: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.miner-stat {
-    display: flex;
-    align-items: center;
-    background-color: var(--primary-light);
-    padding: 8px 15px;
-    border-radius: 20px;
-}
-
-.stat-icon {
-    margin-right: 8px;
-    color: var(--primary-dark);
-}
-
-/* Legal Miners Page Styles */
-.page-hero {
-    background-color: var(--primary-light);
-    padding: 100px 0 70px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.page-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232ecc71' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-
-.page-hero-content h1 {
-    font-size: 3rem;
-    color: var(--text-dark);
-    margin-bottom: 1rem;
-}
-
-.page-hero-content .subtitle {
-    font-size: 1.3rem;
-    color: var(--text-light);
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.legal-mining-introduction {
-    padding: 80px 0;
-}
-
-.intro-content {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    grid-gap: 40px;
-    align-items: center;
-}
-
-.intro-text p {
-    margin-bottom: 1.5rem;
-    line-height: 1.7;
-}
-
-.intro-text ul {
-    margin-bottom: 1.5rem;
-    padding-left: 1.5rem;
-}
-
-.intro-text li {
-    margin-bottom: 0.5rem;
-    position: relative;
-}
-
-.intro-image {
-    position: relative;
-}
-
-.intro-image img {
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-.image-caption {
-    font-size: 0.85rem;
-    color: var(--text-light);
-    margin-top: 10px;
-    text-align: center;
-    font-style: italic;
-}
-
-.miners-list {
-    padding: 80px 0;
-    background-color: var(--light-bg);
-}
-
-.miners-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 40px;
-}
-
-.miner-profile {
-    background: var(--white);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.miner-profile.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.miner-profile:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.miner-header {
-    display: flex;
-    align-items: center;
-    padding: 25px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.miner-header .miner-logo {
-    width: 80px;
-    height: 80px;
-    margin: 0 20px 0 0;
-}
-
-.miner-title {
-    flex: 1;
-}
-
-.miner-title h3 {
-    margin-bottom: 5px;
-    font-size: 1.5rem;
-}
-
-.miner-title .minerals {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    background-color: var(--primary-light);
-    padding: 3px 10px;
-    border-radius: 15px;
-    display: inline-block;
-}
->>>>>>> fdb4edd3a4e24e1200c1ff67b741df735e41c278
 
 .miner-body {
     padding: 25px;
@@ -4092,7 +3827,6 @@ document.addEventListener('DOMContentLoaded', function() {
 .logo img {
   border-radius: 50%;
   animation: logoPulse 2s infinite;
-<<<<<<< HEAD
 }
 
 .nav-laws-dropdown {
@@ -4132,6 +3866,4 @@ document.addEventListener('DOMContentLoaded', function() {
 .dropdown-menu a:hover {
   background: #f5f9f7;
   color: #2ecc71;
-=======
->>>>>>> fdb4edd3a4e24e1200c1ff67b741df735e41c278
 }

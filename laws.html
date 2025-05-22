@@ -6,406 +6,9 @@
     <title>Environmental Protection Laws - Environmental Protection Rights in India</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-<<<<<<< HEAD
-    
-</head>
-<body>
-    <style>
-        /* Base styles */
-:root {
-    --primary-color: #1b6b27;
-    --secondary-color: #48bb78;
-    --bg-color: #f7fafc;
-    --text-color: #113106;
-    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Header & Navigation */
-header {
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.logo img {
-    height: 40px;
-    width: auto;
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    transition: var(--transition);
-}
-
-.nav-links a:hover {
-    color: var(--primary-color);
-}
-
-/* Page Hero */
-.page-hero {
-    background: linear-gradient(135deg, var(--primary-color), #1a365d);
-    color: white;
-    padding: 4rem 0;
-    margin-bottom: 3rem;
-    border-radius: 0 0 2rem 2rem;
-}
-
-.page-hero-content {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.page-hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.subtitle {
-    font-size: 1.2rem;
-    opacity: 0.9;
-}
-
-/* Timeline Styles */
-.laws-timeline {
-    position: relative;
-    padding: 2rem 0;
-}
-
-.timeline-marker {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background-color: var(--primary-color);
-    transform: translateX(-50%);
-}
-
-.law-item {
-    display: flex;
-    margin-bottom: 3rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-.law-year {
-    flex: 0 0 120px;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    padding-right: 2rem;
-    text-align: right;
-}
-
-.law-content {
-    flex: 1;
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: var(--card-shadow);
-    transition: var(--transition);
-}
-
-.law-content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Challenge Cards */
-.challenges-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-}
-
-.challenge-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: var(--card-shadow);
-    transition: var(--transition);
-}
-
-.challenge-card:hover {
-    transform: translateY(-5px);
-}
-
-.card-icon {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-/* Judgment Cards */
-.judgments-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-}
-
-.judgment-card {
-    background: white;
-    border-radius: 1rem;
-    box-shadow: var(--card-shadow);
-    overflow: hidden;
-}
-
-.judgment-header {
-    background: var(--primary-color);
-    color: white;
-    padding: 1.5rem;
-}
-
-.judgment-body {
-    padding: 1.5rem;
-}
-
-/* Resource Grid */
-.resources-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-}
-
-.resource-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: var(--card-shadow);
-    transition: var(--transition);
-}
-
-.resource-card:hover {
-    transform: translateY(-5px);
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    
-    .hamburger {
-        display: block;
-    }
-    
-    .law-item {
-        flex-direction: column;
-    }
-    
-    .law-year {
-        text-align: left;
-        padding-bottom: 1rem;
-    }
-    
-    .timeline-marker {
-        left: 2rem;
-    }
-}
-
-/* Section Headers */
-.section-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.underline {
-    height: 4px;
-    width: 60px;
-    background: var(--primary-color);
-    margin: 1rem auto;
-    border-radius: 2px;
-}
-
-/* Interactive Elements */
-.key-provisions {
-    background: #f8fafc;
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    margin-top: 1rem;
-}
-
-.solution-hint {
-    border-left: 4px solid var(--secondary-color);
-    padding-left: 1rem;
-    margin-top: 1rem;
-}
-.footer-content {
-                                    display: flex;
-                                    justify-content: space-between;
-                                    align-items: center;
-                                    padding: 1.5rem 0;
-                                    border-top: 1px solid #eee;
-                                    margin-top: 2rem;
-                                    font-size: 1.2rem;
-                                    color: #555;}
-    
-/* Footer */
-footer {
-  background-color: #1a1a1a;
-  color: var(--white);
-  padding: 70px 0 20px;
-  position: relative;
-}
-
-footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  gap: 50px;
-  margin-bottom: 50px;
-}
-
-.footer-logo {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.footer-logo img {
-  width: 50px;
-  margin-right: 10px;
-}
-
-.footer-logo span {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--white);
-}
-
-.footer-links {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.link-group h4 {
-  color: #48bb78;
-  margin-bottom: 20px;
-  font-size: 1.1rem;
-  position: relative;
-  padding-bottom: 10px;
-}
-
-.link-group h4::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 30px;
-  height: 2px;
-  background-color: #113106;
-}
-
-.link-group ul {
-  list-style: none;
-}
-
-.link-group li {
-  margin-bottom: 10px;
-}
-
-.link-group a {
-  color: #a1a1a1;
-  transition: var(--transition);
-}
-
-.link-group a:hover {
-  color: var(--primary-light);
-  padding-left: 5px;
-}
-
-.footer-bottom {
-  text-align: center;
-  padding-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-bottom p {
-  color: #777;
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-}
-.leagal-resources {
-    margin: 3rem 0;
-    padding: 2rem;
-    background: #f8fafc;
-    border-radius: 1rem;
-    box-shadow: var(--card-shadow);
-    transition: var(--transition);
-}
-.leagal-resources:hover {   
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-    </style>
-    
-=======
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
->>>>>>> fdb4edd3a4e24e1200c1ff67b741df735e41c278
     <header>
         <nav class="container">
             <div class="logo">
@@ -415,25 +18,16 @@ footer::before {
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-<<<<<<< HEAD
-                <li><a href="impact.html">Impact</a></li>
-                <li><a href="laws.html">Laws</a></li>
-=======
                 <li><a href="#impact">Impact</a></li>
                 <li><a href="#laws">Laws</a></li>
->>>>>>> fdb4edd3a4e24e1200c1ff67b741df735e41c278
                 <li><a href="news.html">News</a></li>
                 <li><a href="tracking.html"><i class="fas fa-map-marker-alt"></i> Real-time Tracking</a></li>
                 <li><a href="legal-miners.html">Legal Miners</a></li>
                 <li><a href="report.html">Report</a></li>
                 <li><a href="contact.html">Contact</a></li>
-<<<<<<< HEAD
-                <li><a href="login.html">Login/Signup</a></li>
-=======
                 <li><a href="login.html">Login</a></li>
                 <li><a href="signup.html">Signup</a></li>
                 
->>>>>>> fdb4edd3a4e24e1200c1ff67b741df735e41c278
             </ul>
             <div class="hamburger">
                 <div class="line"></div>
@@ -740,24 +334,16 @@ footer::before {
         </section>
     </main>
 
-<<<<<<< HEAD
         <footer class="container">
         <div class="footer-content">
             <div class="footer-logo">
                 <img src="LOGO.png" alt="Bhoomi Rakshak Logo">
-=======
-    <footer class="container">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="logo-white.png" alt="Bhoomi Rakshak Logo">
->>>>>>> fdb4edd3a4e24e1200c1ff67b741df735e41c278
                 <span>Bhoomi Rakshak</span>
             </div>
             <div class="footer-links">
                 <div class="link-group">
                     <h4>Quick Links</h4>
                     <ul>
-<<<<<<< HEAD
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#impact">Impact</a></li>
@@ -765,14 +351,6 @@ footer::before {
                         <li><a href="news.html">News</a></li>
                         <li><a href="tracking.html">Real-time Tracking</a></li>
                         <li><a href="#report">Report</a></li>
-=======
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="impact.html">Impact</a></li>
-                        <li><a href="laws.html">Laws</a></li>
-                        <li><a href="solutions.html">Solutions</a></li>
-                        <li><a href="report.html">Report</a></li>
->>>>>>> fdb4edd3a4e24e1200c1ff67b741df735e41c278
                     </ul>
                 </div>
                 <div class="link-group">
@@ -795,7 +373,6 @@ footer::before {
             </div>
         </div>
         <div class="footer-bottom">
-<<<<<<< HEAD
             <p>&copy; 2025 Bhoomi Rakshak. All rights reserved.</p>
             <p>Committed to protecting our Earth from illegal mining activities.</p>
         </div>
@@ -803,10 +380,6 @@ footer::before {
         <div class="footer-bottom" style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px; margin-top: 20px;">
             <p style="color: #ccc; text-align: center;">&copy; 2023 Bhoomi Rakshak. All rights reserved.</p>
             <p class="social-awareness-message" style="color: #ccc; text-align: center; margin-top: 10px;">"Protect Nature, Preserve the Future"</p>
-=======
-            <p>&copy; 2023 Bhoomi Rakshak. All rights reserved.</p>
-            <p class="social-awareness-message">"Protect Nature, Preserve the Future"</p>
->>>>>>> fdb4edd3a4e24e1200c1ff67b741df735e41c278
         </div>
     </footer>
 
@@ -823,7 +396,6 @@ footer::before {
                 });
             }
         });
-<<<<<<< HEAD
         // Add to existing script
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu
@@ -863,8 +435,6 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = 'report.html';
     });
 });
-=======
->>>>>>> fdb4edd3a4e24e1200c1ff67b741df735e41c278
     </script>
 </body>
 </html> 
