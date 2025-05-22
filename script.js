@@ -131,18 +131,31 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
+<<<<<<< HEAD
 
             // Close mobile menu if open
             if (mobileNav && mobileNav.classList.contains('active')) {
+=======
+            
+            // Close mobile menu if open
+            if (mobileNav.classList.contains('active')) {
+>>>>>>> fdb4edd3a4e24e1200c1ff67b741df735e41c278
                 hamburger.classList.remove('active');
                 mobileNav.classList.remove('active');
                 overlay.classList.remove('active');
                 document.body.style.overflow = '';
             }
+<<<<<<< HEAD
 
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
 
+=======
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+>>>>>>> fdb4edd3a4e24e1200c1ff67b741df735e41c278
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 window.scrollTo({
