@@ -77,6 +77,92 @@
         font-size: 1rem;
     }
 }
+
+.case-box {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.case-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.case-box::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid rgba(46, 125, 50, 0.1);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.case-box h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.case-box h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+.case-box p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.case-box .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(46, 125, 50, 0.1);
+}
+
+.case-box .stat-item {
+    text-align: center;
+}
+
+.case-box .stat-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.case-box .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
     </style>
 </head>
 <body>
@@ -198,57 +284,65 @@
             </div>
             
             <div class="testimonial-gallery">
-                <div class="testimonial-intro" style="margin-bottom: 15px;">
-                    <p>Behind every statistic about illegal mining, there are real people whose lives have been profoundly altered. These stories illustrate the human dimension of the environmental crisis.</p>
+                <div class="testimonial-intro" style="margin-bottom: 30px; text-align: center; padding: 20px; background: linear-gradient(to right, rgba(46, 125, 50, 0.1), rgba(46, 125, 50, 0.05)); border-radius: 10px; border-left: 5px solid #2E7D32;">
+                    <p style="font-size: 1.3rem; color: #2E7D32; max-width: 800px; margin: 0 auto; font-weight: 500; line-height: 1.6;">Behind every statistic about illegal mining, there are real people whose lives have been profoundly altered. These stories illustrate the human dimension of the environmental crisis.</p>
                 </div>
                 
-                <div class="testimony" style="margin-top: 0;">
-                    <div class="testimony-image">
-                        <img src="images/farmer-testimony.jpg" alt="Village farmer affected by mining">
-                    </div>
-                    <div class="testimony-content">
-                        <div class="testimony-quote">
-                            <i class="fas fa-quote-left"></i>
-                            <p>"For three generations, my family cultivated these lands. After the illegal mines started operating upstream, our water turned orange with toxins. Now nothing grows here, and my children had to move to the city to find work."</p>
+                <div class="testimonials-container" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 40px; margin-bottom: 60px;">
+                    <!-- Mahesh Kumar's Story -->
+                    <div class="testimonial-box" style="flex: 1; min-width: 300px; max-width: 350px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)';">
+                        <div class="testimonial-image" style="width: 100%; height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                            <img src="mahesh-kumar.png" alt="Mahesh Kumar" style="width: 100%; height: 100%; object-fit: contain; object-position: center;">
                         </div>
-                        <div class="testimony-author">
-                            <p><strong>Mahesh Kumar</strong>, 58<br>Farmer from Chhattisgarh</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimony reverse">
-                    <div class="testimony-image">
-                        <img src="images/tribal-testimony.jpg" alt="Tribal woman affected by mining">
-                    </div>
-                    <div class="testimony-content">
-                        <div class="testimony-quote">
-                            <i class="fas fa-quote-left"></i>
-                            <p>"The forest was our home, our temple, our grocery store, and our pharmacy. They came with bulldozers at night and by morning, 30 acres of our ancestral land was gone. No one asked for our consent."</p>
-                        </div>
-                        <div class="testimony-author">
-                            <p><strong>Sunita Murmu</strong>, 42<br>Tribal leader from Jharkhand</p>
+                        <div class="testimonial-content" style="padding: 25px;">
+                            <div class="testimonial-quote" style="margin-bottom: 20px;">
+                                <i class="fas fa-quote-left" style="color: #2E7D32; font-size: 1.5rem; margin-right: 10px;"></i>
+                                <p style="font-style: italic; color: #555; line-height: 1.6;">"For three generations, my family cultivated these lands. After the illegal mines started operating upstream, our water turned orange with toxins. Now nothing grows here, and my children had to move to the city to find work."</p>
+                            </div>
+                            <div class="testimonial-author" style="text-align: center;">
+                                <h4 style="color: #2E7D32; margin: 0; font-size: 1.2rem;">Mahesh Kumar</h4>
+                                <p style="color: #666; margin: 5px 0 0;">Farmer from Chhattisgarh</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="testimony">
-                    <div class="testimony-image">
-                        <img src="images/child-testimony.jpg" alt="Former child worker">
-                    </div>
-                    <div class="testimony-content">
-                        <div class="testimony-quote">
-                            <i class="fas fa-quote-left"></i>
-                            <p>"I started working in the mines when I was 9. We would crawl into small tunnels where adults couldn't fit. Many of my friends developed coughs that never went away, and some never came back from tunnel collapses."</p>
+
+                    <!-- Sunita Murmu's Story -->
+                    <div class="testimonial-box" style="flex: 1; min-width: 300px; max-width: 350px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)';">
+                        <div class="testimonial-image" style="width: 100%; height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                            <img src="sunita-murmur.png" alt="Sunita Murmu" style="width: 100%; height: 100%; object-fit: contain; object-position: center;">
                         </div>
-                        <div class="testimony-author">
-                            <p><strong>Raju Singh</strong>, 19<br>Former child worker, now activist</p>
+                        <div class="testimonial-content" style="padding: 25px;">
+                            <div class="testimonial-quote" style="margin-bottom: 20px;">
+                                <i class="fas fa-quote-left" style="color: #2E7D32; font-size: 1.5rem; margin-right: 10px;"></i>
+                                <p style="font-style: italic; color: #555; line-height: 1.6;">"The forest was our home, our temple, our grocery store, and our pharmacy. They came with bulldozers at night and by morning, 30 acres of our ancestral land was gone. No one asked for our consent."</p>
+                            </div>
+                            <div class="testimonial-author" style="text-align: center;">
+                                <h4 style="color: #2E7D32; margin: 0; font-size: 1.2rem;">Sunita Murmu</h4>
+                                <p style="color: #666; margin: 5px 0 0;">Tribal leader from Jharkhand</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Raju Singh's Story -->
+                    <div class="testimonial-box" style="flex: 1; min-width: 300px; max-width: 350px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)';">
+                        <div class="testimonial-image" style="width: 100%; height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                            <img src="raju-singh.png" alt="Raju Singh" style="width: 100%; height: 100%; object-fit: contain; object-position: center;">
+                        </div>
+                        <div class="testimonial-content" style="padding: 25px;">
+                            <div class="testimonial-quote" style="margin-bottom: 20px;">
+                                <i class="fas fa-quote-left" style="color: #2E7D32; font-size: 1.5rem; margin-right: 10px;"></i>
+                                <p style="font-style: italic; color: #555; line-height: 1.6;">"I started working in the mines when I was 9. We would crawl into small tunnels where adults couldn't fit. Many of my friends developed coughs that never went away, and some never came back from tunnel collapses."</p>
+                            </div>
+                            <div class="testimonial-author" style="text-align: center;">
+                                <h4 style="color: #2E7D32; margin: 0; font-size: 1.2rem;">Raju Singh</h4>
+                                <p style="color: #666; margin: 5px 0 0;">Former child worker, now activist</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="impact-categories">
+            <div class="impact-categories" style="margin-top: 80px;">
                 <div class="impact-category">
                     <h3>Community Displacement</h3>
                     <div class="impact-stat">
@@ -286,183 +380,285 @@
             </div>
             
             <div class="longterm-content">
-                <div class="longterm-visual">
-                    <img src="images/longterm-impact.jpg" alt="Long-term environmental damage">
+                <div style="text-align: center; margin: 40px 0;">
+                    <div style="width: 80%; height: 2px; background: linear-gradient(to right, transparent, #2E7D32, transparent); margin: 0 auto 30px;"></div>
+                    <div class="longterm-visual" style="text-align: center; margin: 30px 0;">
+                        <img src="long-term-dam.png" alt="Long-term environmental damage" style="max-width: 100%; height: auto; border-radius: 15px; border: 3px solid #2E7D32; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <h3 style="color: #2E7D32; font-size: 1.5rem; margin-bottom: 15px;">1-5 Years</h3>
+                        <p style="color: #666; font-size: 1.1rem;">Immediate Aftermath</p>
+                    </div>
                 </div>
                 
-                <div class="longterm-timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker">1-5 Years</div>
-                        <div class="timeline-content">
-                            <h4>Immediate Aftermath</h4>
-                            <ul>
-                                <li>Visible landscape destruction</li>
-                                <li>Initial water contamination</li>
-                                <li>Displacement of wildlife and people</li>
-                                <li>Local economic disruption</li>
+                <div class="longterm-timeline" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 40px;">
+                    <div class="timeline-item" style="flex: 1; min-width: 300px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow: hidden; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)';">
+                        <div class="timeline-header" style="background: #1976D2; padding: 20px; color: white;">
+                            <h4 style="margin: 0; font-size: 1.4rem;">Immediate Aftermath</h4>
+                            <p style="margin: 5px 0 0; opacity: 0.9;">1-5 Years</p>
+                        </div>
+                        <div class="timeline-content" style="padding: 25px;">
+                            <ul style="list-style-type: none; padding: 0; margin: 0;">
+                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                    <i class="fas fa-circle" style="color: #1976D2; font-size: 0.5rem; position: absolute; left: 0; top: 8px;"></i>
+                                    Visible landscape destruction
+                                </li>
+                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                    <i class="fas fa-circle" style="color: #1976D2; font-size: 0.5rem; position: absolute; left: 0; top: 8px;"></i>
+                                    Initial water contamination
+                                </li>
+                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                    <i class="fas fa-circle" style="color: #1976D2; font-size: 0.5rem; position: absolute; left: 0; top: 8px;"></i>
+                                    Displacement of wildlife and people
+                                </li>
+                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                    <i class="fas fa-circle" style="color: #1976D2; font-size: 0.5rem; position: absolute; left: 0; top: 8px;"></i>
+                                    Local economic disruption
+                                </li>
                             </ul>
                         </div>
                     </div>
                     
-                    <div class="timeline-item">
-                        <div class="timeline-marker">5-20 Years</div>
-                        <div class="timeline-content">
-                            <h4>Medium-Term Effects</h4>
-                            <ul>
-                                <li>Progressive soil degradation</li>
-                                <li>Groundwater contamination spreading</li>
-                                <li>Emergence of chronic health issues</li>
-                                <li>Collapse of local ecosystems</li>
+                    <div class="timeline-item" style="flex: 1; min-width: 300px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow: hidden; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)';">
+                        <div class="timeline-header" style="background: #1976D2; padding: 20px; color: white;">
+                            <h4 style="margin: 0; font-size: 1.4rem;">Medium-Term Effects</h4>
+                            <p style="margin: 5px 0 0; opacity: 0.9;">5-20 Years</p>
+                        </div>
+                        <div class="timeline-content" style="padding: 25px;">
+                            <ul style="list-style-type: none; padding: 0; margin: 0;">
+                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                    <i class="fas fa-circle" style="color: #1976D2; font-size: 0.5rem; position: absolute; left: 0; top: 8px;"></i>
+                                    Progressive soil degradation
+                                </li>
+                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                    <i class="fas fa-circle" style="color: #1976D2; font-size: 0.5rem; position: absolute; left: 0; top: 8px;"></i>
+                                    Groundwater contamination spreading
+                                </li>
+                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                    <i class="fas fa-circle" style="color: #1976D2; font-size: 0.5rem; position: absolute; left: 0; top: 8px;"></i>
+                                    Emergence of chronic health issues
+                                </li>
+                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                    <i class="fas fa-circle" style="color: #1976D2; font-size: 0.5rem; position: absolute; left: 0; top: 8px;"></i>
+                                    Collapse of local ecosystems
+                                </li>
                             </ul>
                         </div>
                     </div>
                     
-                    <div class="timeline-item">
-                        <div class="timeline-marker">20-100 Years</div>
-                        <div class="timeline-content">
-                            <h4>Long-Term Impact</h4>
-                            <ul>
-                                <li>Persistent heavy metal contamination</li>
-                                <li>Permanent changes to hydrology</li>
-                                <li>Intergenerational health problems</li>
-                                <li>Loss of traditional knowledge and practices</li>
-                            </ul>
+                    <div class="timeline-item" style="flex: 1; min-width: 300px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow: hidden; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)';">
+                        <div class="timeline-header" style="background: #1976D2; padding: 20px; color: white;">
+                            <h4 style="margin: 0; font-size: 1.4rem;">Long-Term Impact</h4>
+                            <p style="margin: 5px 0 0; opacity: 0.9;">20-100 Years</p>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-marker">100+ Years</div>
-                        <div class="timeline-content">
-                            <h4>Generational Consequences</h4>
-                            <ul>
-                                <li>Permanently altered landscapes</li>
-                                <li>Continued acid mine drainage</li>
-                                <li>Potential extinction of endemic species</li>
-                                <li>Cultural heritage loss</li>
+                        <div class="timeline-content" style="padding: 25px;">
+                            <ul style="list-style-type: none; padding: 0; margin: 0;">
+                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                    <i class="fas fa-circle" style="color: #1976D2; font-size: 0.5rem; position: absolute; left: 0; top: 8px;"></i>
+                                    Persistent heavy metal contamination
+                                </li>
+                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                    <i class="fas fa-circle" style="color: #1976D2; font-size: 0.5rem; position: absolute; left: 0; top: 8px;"></i>
+                                    Permanent changes to hydrology
+                                </li>
+                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                    <i class="fas fa-circle" style="color: #1976D2; font-size: 0.5rem; position: absolute; left: 0; top: 8px;"></i>
+                                    Intergenerational health problems
+                                </li>
+                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                    <i class="fas fa-circle" style="color: #1976D2; font-size: 0.5rem; position: absolute; left: 0; top: 8px;"></i>
+                                    Loss of traditional knowledge and practices
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="restoration-challenges">
+            <div class="restoration-challenges" style="margin-top: 80px;">
                 <h3>Challenges of Restoration</h3>
-                <p>While environmental restoration is possible in theory, the reality is that many illegally mined areas never receive proper remediation. The costs of thoroughly restoring these sites often far exceed the profits gained from the mining, creating a problematic economic equation:</p>
-                
-                <div class="restoration-stats">
-                    <div class="restoration-stat">
-                        <div class="stat-value">₹15-25 Lakh</div>
-                        <div class="stat-label">Cost per hectare for basic land reclamation</div>
-                    </div>
+                <div style="background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding: 30px; margin: 20px 0;">
+                    <p style="font-size: 1.1rem; line-height: 1.6; color: #333; margin-bottom: 20px;">While environmental restoration is possible in theory, the reality is that many illegally mined areas never receive proper remediation. The costs of thoroughly restoring these sites often far exceed the profits gained from the mining, creating a problematic economic equation:</p>
                     
-                    <div class="restoration-stat">
-                        <div class="stat-value">30-150 Years</div>
-                        <div class="stat-label">Time required for forest ecosystem recovery</div>
-                    </div>
-                    
-                    <div class="restoration-stat">
-                        <div class="stat-value">&lt;8%</div>
-                        <div class="stat-label">Of illegal mining sites undergo proper remediation</div>
+                    <div class="restoration-stats" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin-top: 30px;">
+                        <div class="restoration-stat" style="text-align: center; flex: 1; min-width: 200px;">
+                            <div style="font-size: 1.8rem; font-weight: bold; color: #2E7D32; margin-bottom: 10px;">₹15-25 Lakh</div>
+                            <div style="color: #666;">Cost per hectare for basic land reclamation</div>
+                        </div>
+                        
+                        <div class="restoration-stat" style="text-align: center; flex: 1; min-width: 200px;">
+                            <div style="font-size: 1.8rem; font-weight: bold; color: #2E7D32; margin-bottom: 10px;">30-150 Years</div>
+                            <div style="color: #666;">Time required for forest ecosystem recovery</div>
+                        </div>
+                        
+                        <div class="restoration-stat" style="text-align: center; flex: 1; min-width: 200px;">
+                            <div style="font-size: 1.8rem; font-weight: bold; color: #2E7D32; margin-bottom: 10px;">&lt;8%</div>
+                            <div style="color: #666;">Of illegal mining sites undergo proper remediation</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <section class="case-studies">
-            <div class="section-header">
-                <h2>Case Studies: The Real Impact</h2>
-                <div class="underline"></div>
-                <p class="section-intro">Examining specific examples of how illegal mining has affected different regions</p>
+
+            <div style="margin: 80px 0 40px 0; text-align: center;">
+                <h2 style="color: #2E7D32; font-size: 2.5rem; font-weight: 700; margin-bottom: 20px;">Impact Stories</h2>
+                <div style="width: 100px; height: 4px; background: #2E7D32; margin: 0 auto 20px;"></div>
+                <p style="color: #666; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">Examining specific examples of how illegal mining has affected different regions</p>
             </div>
             
-            <div class="cases-container">
-                <div class="case-tabs">
-                    <button class="case-tab active" data-tab="bellary">Bellary, Karnataka</button>
-                    <button class="case-tab" data-tab="jaintia">Jaintia Hills, Meghalaya</button>
-                    <button class="case-tab" data-tab="aravalli">Aravalli Range, Rajasthan</button>
+            <div class="cases-container" style="position: relative; padding: 40px 0;">
+                <!-- Left Side Decorative Elements -->
+                <div style="position: absolute; left: 5%; top: 20%; width: 200px; text-align: center;">
+                    <i class="fas fa-mountain" style="font-size: 3.5rem; color: #2E7D32; opacity: 0.6; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);"></i>
+                    <h4 style="color: #2E7D32; font-size: 1.3rem; margin-bottom: 10px; font-weight: 600;">Environmental Impact</h4>
+                    <i class="fas fa-arrow-right" style="font-size: 2.5rem; color: #2E7D32; opacity: 0.7; animation: pulse 2s infinite;"></i>
+                </div>
+
+                <div style="position: absolute; left: 5%; top: 50%; width: 200px; text-align: center;">
+                    <i class="fas fa-industry" style="font-size: 3.5rem; color: #2E7D32; opacity: 0.6; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);"></i>
+                    <h4 style="color: #2E7D32; font-size: 1.3rem; margin-bottom: 10px; font-weight: 600;">Industrial Impact</h4>
+                    <i class="fas fa-arrow-right" style="font-size: 2.5rem; color: #2E7D32; opacity: 0.7; animation: pulse 2s infinite;"></i>
+                </div>
+
+                <div style="position: absolute; left: 5%; top: 80%; width: 200px; text-align: center;">
+                    <i class="fas fa-users" style="font-size: 3.5rem; color: #2E7D32; opacity: 0.6; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);"></i>
+                    <h4 style="color: #2E7D32; font-size: 1.3rem; margin-bottom: 10px; font-weight: 600;">Social Impact</h4>
+                    <i class="fas fa-arrow-right" style="font-size: 2.5rem; color: #2E7D32; opacity: 0.7; animation: pulse 2s infinite;"></i>
+                </div>
+
+                <!-- Right Side Decorative Elements -->
+                <div style="position: absolute; right: 5%; top: 20%; width: 200px; text-align: center;">
+                    <i class="fas fa-arrow-left" style="font-size: 2.5rem; color: #2E7D32; opacity: 0.7; animation: pulse 2s infinite;"></i>
+                    <h4 style="color: #2E7D32; font-size: 1.3rem; margin: 10px 0; font-weight: 600;">Case Study Details</h4>
+                    <i class="fas fa-file-alt" style="font-size: 3.5rem; color: #2E7D32; opacity: 0.6; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);"></i>
+                </div>
+
+                <div style="position: absolute; right: 5%; top: 50%; width: 200px; text-align: center;">
+                    <i class="fas fa-arrow-left" style="font-size: 2.5rem; color: #2E7D32; opacity: 0.7; animation: pulse 2s infinite;"></i>
+                    <h4 style="color: #2E7D32; font-size: 1.3rem; margin: 10px 0; font-weight: 600;">Impact Analysis</h4>
+                    <i class="fas fa-chart-line" style="font-size: 3.5rem; color: #2E7D32; opacity: 0.6; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);"></i>
+                </div>
+
+                <div style="position: absolute; right: 5%; top: 80%; width: 200px; text-align: center;">
+                    <i class="fas fa-arrow-left" style="font-size: 2.5rem; color: #2E7D32; opacity: 0.7; animation: pulse 2s infinite;"></i>
+                    <h4 style="color: #2E7D32; font-size: 1.3rem; margin: 10px 0; font-weight: 600;">Key Findings</h4>
+                    <i class="fas fa-search" style="font-size: 3.5rem; color: #2E7D32; opacity: 0.6; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);"></i>
+                </div>
+
+                <!-- Add animation keyframes -->
+                <style>
+                    @keyframes pulse {
+                        0% { transform: scale(1); }
+                        50% { transform: scale(1.1); }
+                        100% { transform: scale(1); }
+                    }
+                </style>
+
+                <!-- Vertical Timeline Line with Intersection Bubbles -->
+                <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; background: #2E7D32; transform: translateX(-50%); z-index: 1;">
+                    <!-- Bellary Intersection Bubble -->
+                    <div style="position: absolute; left: 50%; top: 16.8%; width: 12px; height: 12px; background: #2E7D32; border-radius: 50%; transform: translate(-50%, -50%); z-index: 2; box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.2);"></div>
+                    <!-- Jaintia Hills Intersection Bubble -->
+                    <div style="position: absolute; left: 50%; top: 51%; width: 12px; height: 12px; background: #2E7D32; border-radius: 50%; transform: translate(-50%, -50%); z-index: 2; box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.2);"></div>
+                    <!-- Aravalli Intersection Bubble -->
+                    <div style="position: absolute; left: 50%; top: 84.2%; width: 12px; height: 12px; background: #2E7D32; border-radius: 50%; transform: translate(-50%, -50%); z-index: 2; box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.2);"></div>
                 </div>
                 
-                <div class="case-content active" id="bellary">
-                    <div class="case-header">
-                        <h3>Bellary Iron Ore Mining: A Cautionary Tale</h3>
+                <!-- Bellary Case Study -->
+                <div class="case-box" style="width: 35%; margin-left: auto; margin-bottom: 100px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow: visible; position: relative;">
+                    <!-- Connecting Line -->
+                    <div style="position: absolute; left: -43%; top: 50%; width: 43%; height: 3px; background: #2E7D32; z-index: 1;"></div>
+                    <div class="case-image" style="width: 100%; height: 200px; overflow: hidden;">
+                        <img src="bellary-min-imp.png" alt="Bellary Mining Impact" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    
-                    <div class="case-body">
-                        <div class="case-image">
-                            <img src="images/bellary-case.jpg" alt="Bellary Mining Impact">
-                            <p class="image-caption">Devastated landscape in Bellary district after years of illegal iron ore mining</p>
-                        </div>
+                    <div class="case-content" style="padding: 20px;">
+                        <h3 style="color: #2E7D32; margin-bottom: 12px; font-size: 1.2rem;">Bellary Iron Ore Mining: A Cautionary Tale</h3>
+                        <p style="font-size: 0.9rem; line-height: 1.4;">The Bellary mining scandal remains one of India's most notorious environmental crimes. Between 2006 and 2011, illegal iron ore mining in Karnataka's Bellary district caused ecological devastation on an unprecedented scale.</p>
                         
-                        <div class="case-details">
-                            <p>The Bellary mining scandal remains one of India's most notorious environmental crimes. Between 2006 and 2011, illegal iron ore mining in Karnataka's Bellary district caused ecological devastation on an unprecedented scale.</p>
-                            
-                            <h4>Key Impacts:</h4>
-                            <ul>
-                                <li><strong>Environmental:</strong> Destruction of over 9,000 hectares of forest, including protected areas. Contamination of three major river systems.</li>
-                                <li><strong>Health:</strong> 132% increase in respiratory diseases reported in surrounding communities. Contaminated drinking water affecting 200+ villages.</li>
-                                <li><strong>Social:</strong> Displacement of indigenous communities. Rise in land conflicts and violence against environmental activists.</li>
-                                <li><strong>Economic:</strong> Loss of estimated ₹16,000 crore in revenue. Agricultural productivity declined by 40% in surrounding areas.</li>
-                            </ul>
-                            
-                            <h4>Aftermath:</h4>
-                            <p>Following intervention by the Supreme Court and the CBI, mining was temporarily banned in 2011. Despite restoration efforts, scientific assessments indicate that full ecosystem recovery may take 200+ years, if ever achieved.</p>
-                        </div>
+                        <h4 style="color: #2E7D32; margin: 15px 0 8px; font-size: 1rem;">Key Impacts:</h4>
+                        <ul style="list-style-type: none; padding: 0; font-size: 0.85rem;">
+                            <li style="margin-bottom: 8px; padding-left: 18px; position: relative;">
+                                <i class="fas fa-circle" style="color: #2E7D32; font-size: 0.4rem; position: absolute; left: 0; top: 6px;"></i>
+                                <strong>Environmental:</strong> Destruction of over 9,000 hectares of forest, including protected areas.
+                            </li>
+                            <li style="margin-bottom: 8px; padding-left: 18px; position: relative;">
+                                <i class="fas fa-circle" style="color: #2E7D32; font-size: 0.4rem; position: absolute; left: 0; top: 6px;"></i>
+                                <strong>Health:</strong> 132% increase in respiratory diseases in surrounding communities.
+                            </li>
+                            <li style="margin-bottom: 8px; padding-left: 18px; position: relative;">
+                                <i class="fas fa-circle" style="color: #2E7D32; font-size: 0.4rem; position: absolute; left: 0; top: 6px;"></i>
+                                <strong>Social:</strong> Displacement of indigenous communities and rise in land conflicts.
+                            </li>
+                            <li style="margin-bottom: 8px; padding-left: 18px; position: relative;">
+                                <i class="fas fa-circle" style="color: #2E7D32; font-size: 0.4rem; position: absolute; left: 0; top: 6px;"></i>
+                                <strong>Economic:</strong> Loss of estimated ₹16,000 crore in revenue.
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                
-                <div class="case-content" id="jaintia">
-                    <div class="case-header">
-                        <h3>Jaintia Hills: The Human Cost of Rat-Hole Mining</h3>
+
+                <!-- Jaintia Hills Case Study -->
+                <div class="case-box" style="width: 35%; margin-right: auto; margin-bottom: 100px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow: visible; position: relative;">
+                    <!-- Connecting Line -->
+                    <div style="position: absolute; right: -43%; top: 50%; width: 43%; height: 3px; background: #2E7D32; z-index: 1;"></div>
+                    <div class="case-image" style="width: 100%; height: 200px; overflow: hidden;">
+                        <img src="rat-hole.png" alt="Rat-hole Mining Impact" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    
-                    <div class="case-body">
-                        <div class="case-image">
-                            <img src="images/jaintia-case.jpg" alt="Rat-hole Mining Impact">
-                            <p class="image-caption">Acidic water bodies resulting from coal mining in Jaintia Hills</p>
-                        </div>
+                    <div class="case-content" style="padding: 20px;">
+                        <h3 style="color: #2E7D32; margin-bottom: 12px; font-size: 1.2rem;">Jaintia Hills: The Human Cost of Rat-Hole Mining</h3>
+                        <p style="font-size: 0.9rem; line-height: 1.4;">Meghalaya's Jaintia Hills region has suffered severe consequences from "rat-hole" coal mining, a dangerous and environmentally destructive practice.</p>
                         
-                        <div class="case-details">
-                            <p>Meghalaya's Jaintia Hills region has suffered severe consequences from "rat-hole" coal mining, a dangerous and environmentally destructive practice that involves digging narrow tunnels for workers to extract coal.</p>
-                            
-                            <h4>Key Impacts:</h4>
-                            <ul>
-                                <li><strong>Environmental:</strong> Extreme acidification of water bodies (pH levels below 3), killing aquatic life across 280+ kilometers of rivers.</li>
-                                <li><strong>Health:</strong> High rates of silicosis, tuberculosis, and other respiratory diseases among miners. Increased cancer rates in local populations.</li>
-                                <li><strong>Social:</strong> Extensive use of child labor in dangerous conditions. Documentation of human trafficking from Nepal and Bangladesh for mining work.</li>
-                                <li><strong>Cultural:</strong> The once-sacred rivers used for traditional practices are now too toxic for any use, destroying cultural practices of indigenous communities.</li>
-                            </ul>
-                            
-                            <h4>Current Status:</h4>
-                            <p>Despite a 2014 National Green Tribunal ban, rat-hole mining continues in remote areas. The region faces a drinking water crisis, with groundwater contaminated by acid mine drainage that experts predict will persist for generations.</p>
-                        </div>
+                        <h4 style="color: #2E7D32; margin: 15px 0 8px; font-size: 1rem;">Key Impacts:</h4>
+                        <ul style="list-style-type: none; padding: 0; font-size: 0.85rem;">
+                            <li style="margin-bottom: 8px; padding-left: 18px; position: relative;">
+                                <i class="fas fa-circle" style="color: #2E7D32; font-size: 0.4rem; position: absolute; left: 0; top: 6px;"></i>
+                                <strong>Environmental:</strong> Extreme acidification of water bodies (pH levels below 3).
+                            </li>
+                            <li style="margin-bottom: 8px; padding-left: 18px; position: relative;">
+                                <i class="fas fa-circle" style="color: #2E7D32; font-size: 0.4rem; position: absolute; left: 0; top: 6px;"></i>
+                                <strong>Health:</strong> High rates of silicosis and tuberculosis among miners.
+                            </li>
+                            <li style="margin-bottom: 8px; padding-left: 18px; position: relative;">
+                                <i class="fas fa-circle" style="color: #2E7D32; font-size: 0.4rem; position: absolute; left: 0; top: 6px;"></i>
+                                <strong>Social:</strong> Extensive use of child labor in dangerous conditions.
+                            </li>
+                            <li style="margin-bottom: 8px; padding-left: 18px; position: relative;">
+                                <i class="fas fa-circle" style="color: #2E7D32; font-size: 0.4rem; position: absolute; left: 0; top: 6px;"></i>
+                                <strong>Cultural:</strong> Sacred rivers now too toxic for traditional practices.
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                
-                <div class="case-content" id="aravalli">
-                    <div class="case-header">
-                        <h3>Aravalli Range: Destroying Ancient Mountains</h3>
+
+                <!-- Aravalli Case Study -->
+                <div class="case-box" style="width: 35%; margin-left: auto; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow: visible; position: relative;">
+                    <!-- Connecting Line -->
+                    <div style="position: absolute; left: -43%; top: 50%; width: 43%; height: 3px; background: #2E7D32; z-index: 1;"></div>
+                    <div class="case-image" style="width: 100%; height: 200px; overflow: hidden;">
+                        <img src="aravali.png" alt="Aravalli Mining Impact" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    
-                    <div class="case-body">
-                        <div class="case-image">
-                            <img src="images/aravalli-case.jpg" alt="Aravalli Mining Impact">
-                            <p class="image-caption">Illegal stone quarrying in the protected Aravalli Range</p>
-                        </div>
+                    <div class="case-content" style="padding: 20px;">
+                        <h3 style="color: #2E7D32; margin-bottom: 12px; font-size: 1.2rem;">Aravalli Range: Destroying Ancient Mountains</h3>
+                        <p style="font-size: 0.9rem; line-height: 1.4;">The Aravalli Range, one of the world's oldest mountain ranges and a critical ecological buffer for the Delhi NCR region, has been severely damaged by illegal mining.</p>
                         
-                        <div class="case-details">
-                            <p>The Aravalli Range, one of the world's oldest mountain ranges and a critical ecological buffer for the Delhi NCR region, has been severely damaged by illegal stone and marble mining.</p>
-                            
-                            <h4>Key Impacts:</h4>
-                            <ul>
-                                <li><strong>Environmental:</strong> Destruction of natural groundwater recharge zones, contributing to critical groundwater depletion. Loss of forest cover accelerating desertification.</li>
-                                <li><strong>Wildlife:</strong> Fragmentation of critical wildlife corridors affecting leopards, striped hyenas, and numerous endangered species.</li>
-                                <li><strong>Climate:</strong> Removal of the natural barrier against dust storms from the Thar Desert, increasing dust pollution across the NCR region by up to 35%.</li>
-                                <li><strong>Water Security:</strong> Damage to 25+ natural springs and aquifers in a water-stressed region that supports 7+ million people.</li>
-                            </ul>
-                            
-                            <h4>Current Concerns:</h4>
-                            <p>Despite multiple Supreme Court orders to stop mining in the Aravalli Range, illegal operations continue at night. Environmental experts warn that continued destruction risks turning large parts of Haryana and Rajasthan into desert within decades.</p>
-                        </div>
+                        <h4 style="color: #2E7D32; margin: 15px 0 8px; font-size: 1rem;">Key Impacts:</h4>
+                        <ul style="list-style-type: none; padding: 0; font-size: 0.85rem;">
+                            <li style="margin-bottom: 8px; padding-left: 18px; position: relative;">
+                                <i class="fas fa-circle" style="color: #2E7D32; font-size: 0.4rem; position: absolute; left: 0; top: 6px;"></i>
+                                <strong>Environmental:</strong> Destruction of natural groundwater recharge zones.
+                            </li>
+                            <li style="margin-bottom: 8px; padding-left: 18px; position: relative;">
+                                <i class="fas fa-circle" style="color: #2E7D32; font-size: 0.4rem; position: absolute; left: 0; top: 6px;"></i>
+                                <strong>Wildlife:</strong> Fragmentation of critical wildlife corridors.
+                            </li>
+                            <li style="margin-bottom: 8px; padding-left: 18px; position: relative;">
+                                <i class="fas fa-circle" style="color: #2E7D32; font-size: 0.4rem; position: absolute; left: 0; top: 6px;"></i>
+                                <strong>Climate:</strong> Increased dust pollution across NCR by up to 35%.
+                            </li>
+                            <li style="margin-bottom: 8px; padding-left: 18px; position: relative;">
+                                <i class="fas fa-circle" style="color: #2E7D32; font-size: 0.4rem; position: absolute; left: 0; top: 6px;"></i>
+                                <strong>Water Security:</strong> Damage to 25+ natural springs and aquifers.
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>

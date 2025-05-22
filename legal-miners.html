@@ -100,92 +100,142 @@
 /* Miners List */
 .miners-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 0 1rem;
+    margin-top: 1rem;
+}
+
+.mining-practices-heading {
+    text-align: center;
+    margin: 4rem 0 2rem;
+    padding: 1rem;
+    position: relative;
+}
+
+.mining-practices-heading h2 {
+    color: #2E7D32;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+}
+
+.mining-practices-heading h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #2E7D32, #4CAF50);
+    border-radius: 2px;
 }
 
 .miner-profile {
-    background: var(--white);
-    border-radius: 1rem;
+    background: white;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    opacity: 0;
-    transform: translateY(20px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(0,0,0,0.08);
+    position: relative;
+    transform: scale(1);
+    max-width: 320px;
+    margin: 0 auto;
 }
 
-.miner-profile.fade-in {
-    opacity: 1;
-    transform: translateY(0);
+.miner-profile:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
 }
 
 .miner-header {
-    padding: 1.5rem;
-    background: var(--gray-light);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
-.miner-logo img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
+.miner-title {
+    text-align: center;
 }
 
 .miner-title h3 {
     margin: 0;
-    color: var(--text-dark);
+    color: #1e293b;
+    font-size: 1.2rem;
 }
 
 .minerals {
     display: inline-block;
-    background: var(--primary-color);
-    color: var(--white);
+    background: #1e293b;
+    color: white;
     padding: 0.2rem 0.8rem;
-    border-radius: 1rem;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
 }
 
 .miner-body {
-    padding: 1.5rem;
+    padding: 1rem;
+}
+
+.miner-body p {
+    color: #334155;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
 }
 
 .miner-highlights {
-    margin: 1.5rem 0;
+    display: grid;
+    gap: 0.8rem;
 }
 
 .highlight-item {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    background: #f8fafc;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border-left: 3px solid #1e293b;
 }
 
-.highlight-icon {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    flex-shrink: 0;
+.highlight-item i {
+    color: #1e293b;
+    font-size: 1rem;
 }
 
-.highlight-content h4 {
-    margin: 0 0 0.5rem 0;
-    color: var(--text-dark);
+.highlight-item h4 {
+    margin: 0 0 0.3rem 0;
+    color: #1e293b;
+    font-size: 0.95rem;
+}
+
+.highlight-item p {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.85rem;
 }
 
 .website-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    color: var(--primary-color);
+    gap: 0.4rem;
+    color: #1e293b;
     text-decoration: none;
     font-weight: 500;
-    transition: var(--transition);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    background: #f8fafc;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
 }
 
 .website-link:hover {
-    color: var(--secondary-color);
+    background: #1e293b;
+    color: white;
 }
 
 /* Mining Operations */
@@ -197,15 +247,19 @@
 }
 
 .operation-card {
-    background: var(--white);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: scale(1);
+    max-width: 280px;
+    margin: 0 auto;
 }
 
 .operation-card:hover {
-    transform: translateY(-5px);
+    transform: scale(1.05);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
 }
 
 .mineral-badge {
@@ -226,11 +280,20 @@
 }
 
 .certification-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 1rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
     text-align: center;
-    box-shadow: var(--shadow);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: scale(1);
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.certification-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
 }
 
 .certification-logo img {
@@ -324,6 +387,46 @@
 .fade-in {
     animation: fadeInUp 0.6s ease forwards;
 }
+
+.illegal-mining-heading {
+    text-align: center;
+    margin: 3rem 0 3.5rem;
+    padding: 1rem;
+    position: relative;
+}
+
+.illegal-mining-heading h2 {
+    color: #2E7D32;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+}
+
+.illegal-mining-heading h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #2E7D32, #4CAF50);
+    border-radius: 2px;
+}
+
+.certification-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    border-color: #2E7D32;
+}
+.certification-card:hover .certification-logo {
+    transform: scale(1.05);
+}
+.certification-card:hover h3 {
+    color: #1b5e20;
+}
     </style>
     <header>
         <nav class="container">
@@ -359,302 +462,377 @@
         </section>
 
         <section class="legal-mining-introduction">
-            <div class="section-header">
-                <h2>Sustainable Mining Practices</h2>
-                <div class="underline"></div>
-                <p class="section-intro">Mining operations that balance economic growth with environmental responsibility and social development</p>
+            <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+                <h2 style="font-size: 2.5rem; color: #1a1a1a; margin-bottom: 1rem; position: relative; display: inline-block;">
+                    Sustainable Mining Practices
+                    <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: linear-gradient(90deg, #6366f1, #8b5cf6); border-radius: 2px;"></div>
+                </h2>
+                <p class="section-intro" style="font-size: 1.2rem; color: #4b5563; max-width: 800px; margin: 1.5rem auto; line-height: 1.6;">Mining operations that balance economic growth with environmental responsibility and social development</p>
             </div>
             
-            <div class="intro-content">
-                <div class="intro-text">
-                    <p>Legal mining operations are essential to India's economy, providing raw materials for manufacturing, infrastructure development, and energy production. When conducted responsibly, mining can create significant economic benefits while minimizing environmental impact.</p>
+            <div style="text-align: center; margin: 0 0 2rem;">
+                <h3 style="font-size: 1.8rem; color: #1e293b; display: inline-block; position: relative; padding: 0.5rem 2rem;">
+                    <i class="fas fa-info-circle" style="color: #6366f1; margin-right: 0.5rem;"></i>
+                    Introduction to Legal Mining
+                    <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 2px; background: linear-gradient(90deg, transparent, #6366f1, transparent);"></div>
+                </h3>
+            </div>
+            
+            <div class="intro-content" style="display: grid; grid-template-columns: 3fr 2fr; gap: 3rem; align-items: start; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                <div class="intro-text" style="position: relative;">
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #334155; margin-bottom: 1.5rem;">Legal mining operations are essential to India's economy, providing raw materials for manufacturing, infrastructure development, and energy production. When conducted responsibly, mining can create significant economic benefits while minimizing environmental impact.</p>
                     
-                    <p>Responsible mining companies implement:</p>
-                    <ul>
-                        <li>Strict environmental management systems</li>
-                        <li>Mine site rehabilitation and reclamation programs</li>
-                        <li>Water conservation and treatment technologies</li>
-                        <li>Emission reduction initiatives</li>
-                        <li>Community development projects</li>
-                        <li>Worker safety programs and fair labor practices</li>
+                    <h3 style="font-size: 1.4rem; color: #1e293b; margin: 2rem 0 1rem; position: relative; padding-left: 1.5rem;">
+                        <i class="fas fa-check-circle" style="color: #6366f1; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>
+                        Responsible mining companies implement:
+                    </h3>
+                    
+                    <ul style="list-style: none; padding-left: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                        <li style="background: white; padding: 1rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 0.8rem;">
+                            <i class="fas fa-leaf" style="color: #6366f1; font-size: 1.2rem;"></i>
+                            <span>Strict environmental management systems</span>
+                        </li>
+                        <li style="background: white; padding: 1rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 0.8rem;">
+                            <i class="fas fa-mountain" style="color: #6366f1; font-size: 1.2rem;"></i>
+                            <span>Mine site rehabilitation programs</span>
+                        </li>
+                        <li style="background: white; padding: 1rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 0.8rem;">
+                            <i class="fas fa-tint" style="color: #6366f1; font-size: 1.2rem;"></i>
+                            <span>Water conservation technologies</span>
+                        </li>
+                        <li style="background: white; padding: 1rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 0.8rem;">
+                            <i class="fas fa-wind" style="color: #6366f1; font-size: 1.2rem;"></i>
+                            <span>Emission reduction initiatives</span>
+                        </li>
+                        <li style="background: white; padding: 1rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 0.8rem;">
+                            <i class="fas fa-users" style="color: #6366f1; font-size: 1.2rem;"></i>
+                            <span>Community development projects</span>
+                        </li>
+                        <li style="background: white; padding: 1rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 0.8rem;">
+                            <i class="fas fa-hard-hat" style="color: #6366f1; font-size: 1.2rem;"></i>
+                            <span>Worker safety programs</span>
+                        </li>
                     </ul>
                     
-                    <p>This page highlights mining companies that have demonstrated commitment to sustainability, regulatory compliance, and environmental protection. By supporting responsible miners, we can encourage industry-wide adoption of best practices.</p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #334155; margin-top: 2rem; padding: 1.5rem; background: rgba(99, 102, 241, 0.05); border-radius: 10px; border-left: 4px solid #6366f1;">
+                        This page highlights mining companies that have demonstrated commitment to sustainability, regulatory compliance, and environmental protection. By supporting responsible miners, we can encourage industry-wide adoption of best practices.
+                    </p>
                 </div>
-                <div class="intro-image">
-                    <img src="images/sustainable-mining.jpg" alt="Sustainable Mining Operation">
-                    <p class="image-caption">A reclaimed mining site with restored vegetation. Photo credit: Indian Bureau of Mines, 2023.</p>
+                <div class="intro-image" style="display: flex; flex-direction: column; align-items: center;">
+                    <div style="position: relative; padding: 15px; background: linear-gradient(135deg, #f6f8fa 0%, #e9ecef 100%); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <!-- Decorative border effect -->
+                        <div style="position: absolute; inset: 0; border-radius: 20px; padding: 2px; background: linear-gradient(45deg, #6366f1, #8b5cf6, #d946ef); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude;"></div>
+                        
+                        <!-- Inner glow effect -->
+                        <div style="position: absolute; inset: 2px; border-radius: 18px; background: rgba(255,255,255,0.1); backdrop-filter: blur(5px);"></div>
+                        
+                        <!-- Main image container -->
+                        <div style="position: relative; padding: 10px; background: rgba(255,255,255,0.9); border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                            <img src="sustainable.png" alt="Sustainable Mining" style="width: 100%; height: auto; border-radius: 12px; display: block; box-shadow: 0 4px 8px rgba(0,0,0,0.08);">
+                        </div>
+                    </div>
+                    <p class="image-caption" style="margin-top: 25px; font-style: italic; color: #4b5563; font-size: 0.95rem; text-align: center; padding: 0 20px; text-shadow: 0 1px 2px rgba(0,0,0,0.05);">A reclaimed mining site with restored vegetation. Photo credit: Indian Bureau of Mines, 2023.</p>
+                </div>
+            </div>
+        </section>
+        <div style="border-top: 2px solid #2E7D32; margin: 0;"></div>
+
+        <section class="why-choose-legal" style="padding: 4rem 0;">
+            <h2 style="color: #1B5E20; font-size: 2.5rem; text-align: center; margin-bottom: 2rem; position: relative;">
+                Why Choose Legal Mining
+                <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: linear-gradient(90deg, #1B5E20, #2E7D32); border-radius: 2px;"></div>
+            </h2>
+            
+            <div style="max-width: 1200px; margin: 3rem auto; background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); padding: 3rem; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
+                <!-- Decorative elements -->
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #1B5E20, #2E7D32);"></div>
+                <div style="position: absolute; top: 0; right: 0; width: 200px; height: 200px; background: radial-gradient(circle, rgba(27,94,32,0.05) 0%, rgba(27,94,32,0) 70%); transform: translate(50%, -50%);"></div>
+                <div style="position: absolute; bottom: 0; left: 0; width: 200px; height: 200px; background: radial-gradient(circle, rgba(27,94,32,0.05) 0%, rgba(27,94,32,0) 70%); transform: translate(-50%, 50%);"></div>
+                
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                    <div class="benefit-box" style="border: 1px solid rgba(27,94,32,0.1); padding: 2rem; border-radius: 15px; background: white; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #1B5E20, #2E7D32); opacity: 0; transition: opacity 0.3s ease;"></div>
+                        <div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(27,94,32,0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);">
+                            <i class="fas fa-leaf" style="font-size: 2.2rem; color: #1B5E20; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);"></i>
+                        </div>
+                        <h3 style="color: #1B5E20; margin-bottom: 1rem; font-size: 1.4rem; font-weight: 600; transition: all 0.3s ease;">Environmental Stewardship</h3>
+                        <p style="color: #4a5568; line-height: 1.6; font-size: 1.1rem; transition: all 0.3s ease;">Legal mining operations implement strict environmental protection measures, including land reclamation, water management, and biodiversity conservation.</p>
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #1B5E20, #2E7D32); transform: scaleX(0); transition: transform 0.3s ease;"></div>
+                    </div>
+                    
+                    <div class="benefit-box" style="border: 1px solid rgba(27,94,32,0.1); padding: 2rem; border-radius: 15px; background: white; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #1B5E20, #2E7D32); opacity: 0; transition: opacity 0.3s ease;"></div>
+                        <div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(27,94,32,0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);">
+                            <i class="fas fa-users" style="font-size: 2.2rem; color: #1B5E20; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);"></i>
+                        </div>
+                        <h3 style="color: #1B5E20; margin-bottom: 1rem; font-size: 1.4rem; font-weight: 600; transition: all 0.3s ease;">Community Development</h3>
+                        <p style="color: #4a5568; line-height: 1.6; font-size: 1.1rem; transition: all 0.3s ease;">Invests in local communities through education, healthcare, and infrastructure development, creating sustainable livelihoods.</p>
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #1B5E20, #2E7D32); transform: scaleX(0); transition: transform 0.3s ease;"></div>
+                    </div>
+                    
+                    <div class="benefit-box" style="border: 1px solid rgba(27,94,32,0.1); padding: 2rem; border-radius: 15px; background: white; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #1B5E20, #2E7D32); opacity: 0; transition: opacity 0.3s ease;"></div>
+                        <div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(27,94,32,0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);">
+                            <i class="fas fa-chart-line" style="font-size: 2.2rem; color: #1B5E20; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);"></i>
+                        </div>
+                        <h3 style="color: #1B5E20; margin-bottom: 1rem; font-size: 1.4rem; font-weight: 600; transition: all 0.3s ease;">Economic Growth</h3>
+                        <p style="color: #4a5568; line-height: 1.6; font-size: 1.1rem; transition: all 0.3s ease;">Contributes to national development through taxes, employment generation, and infrastructure development.</p>
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #1B5E20, #2E7D32); transform: scaleX(0); transition: transform 0.3s ease;"></div>
+                    </div>
+                    
+                    <div class="benefit-box" style="border: 1px solid rgba(27,94,32,0.1); padding: 2rem; border-radius: 15px; background: white; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #1B5E20, #2E7D32); opacity: 0; transition: opacity 0.3s ease;"></div>
+                        <div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(27,94,32,0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);">
+                            <i class="fas fa-shield-alt" style="font-size: 2.2rem; color: #1B5E20; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);"></i>
+                        </div>
+                        <h3 style="color: #1B5E20; margin-bottom: 1rem; font-size: 1.4rem; font-weight: 600; transition: all 0.3s ease;">Regulatory Compliance</h3>
+                        <p style="color: #4a5568; line-height: 1.6; font-size: 1.1rem; transition: all 0.3s ease;">Adheres to all safety and environmental regulations, ensuring responsible and sustainable operations.</p>
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #1B5E20, #2E7D32); transform: scaleX(0); transition: transform 0.3s ease;"></div>
+                    </div>
+
+                    <div class="benefit-box" style="border: 1px solid rgba(27,94,32,0.1); padding: 2rem; border-radius: 15px; background: white; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #1B5E20, #2E7D32); opacity: 0; transition: opacity 0.3s ease;"></div>
+                        <div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(27,94,32,0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);">
+                            <i class="fas fa-hard-hat" style="font-size: 2.2rem; color: #1B5E20; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);"></i>
+                        </div>
+                        <h3 style="color: #1B5E20; margin-bottom: 1rem; font-size: 1.4rem; font-weight: 600; transition: all 0.3s ease;">Worker Safety</h3>
+                        <p style="color: #4a5568; line-height: 1.6; font-size: 1.1rem; transition: all 0.3s ease;">Implements comprehensive safety protocols and training programs to protect workers' health and well-being.</p>
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #1B5E20, #2E7D32); transform: scaleX(0); transition: transform 0.3s ease;"></div>
+                    </div>
+
+                    <div class="benefit-box" style="border: 1px solid rgba(27,94,32,0.1); padding: 2rem; border-radius: 15px; background: white; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #1B5E20, #2E7D32); opacity: 0; transition: opacity 0.3s ease;"></div>
+                        <div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(27,94,32,0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);">
+                            <i class="fas fa-seedling" style="font-size: 2.2rem; color: #1B5E20; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);"></i>
+                        </div>
+                        <h3 style="color: #1B5E20; margin-bottom: 1rem; font-size: 1.4rem; font-weight: 600; transition: all 0.3s ease;">Sustainable Growth</h3>
+                        <p style="color: #4a5568; line-height: 1.6; font-size: 1.1rem; transition: all 0.3s ease;">Balances resource extraction with long-term environmental and social sustainability goals.</p>
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #1B5E20, #2E7D32); transform: scaleX(0); transition: transform 0.3s ease;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <style>
+                .benefit-box {
+                    transform: translateY(0);
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                }
+                
+                .benefit-box:hover {
+                    transform: translateY(-10px);
+                    box-shadow: 0 15px 30px rgba(27,94,32,0.15);
+                    border-color: rgba(27,94,32,0.3);
+                }
+                
+                .benefit-box:hover div[style*="position: absolute; top: 0"] {
+                    opacity: 1;
+                }
+                
+                .benefit-box:hover div[style*="background: linear-gradient(135deg, #e8f5e9"] {
+                    transform: scale(1.1) rotate(5deg);
+                    box-shadow: 0 8px 20px rgba(27,94,32,0.2);
+                }
+                
+                .benefit-box:hover i {
+                    transform: scale(1.2);
+                }
+                
+                .benefit-box:hover h3 {
+                    color: #2E7D32;
+                    transform: translateY(-2px);
+                }
+                
+                .benefit-box:hover p {
+                    color: #2d3748;
+                }
+                
+                .benefit-box:hover div[style*="position: absolute; bottom: 0"] {
+                    transform: scaleX(1);
+                }
+            </style>
+        </section>
+
+        <section class="miners-list" style="padding: 2rem 0;">
+            <h2 style="color: #1B5E20; font-size: 2.5rem; text-align: center; margin-bottom: 1rem; position: relative;">
+                Legal Mining Companies
+                <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: linear-gradient(90deg, #1B5E20, #2E7D32); border-radius: 2px;"></div>
+            </h2>
+            <p style="text-align: center; color: #4a5568; font-size: 1.2rem; max-width: 800px; margin: 1rem auto;">Leading mining companies committed to sustainable practices</p>
+            
+            <div class="miners-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0; padding: 0 1rem;">
+                <div class="miner-profile" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); border: 1px solid rgba(0,0,0,0.08); position: relative; transform: scale(1); max-width: 320px; margin: 0 auto;">
+                    <div class="miner-header" style="padding: 1rem; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-bottom: 1px solid rgba(0,0,0,0.08);">
+                        <div class="miner-title" style="text-align: center;">
+                            <h3 style="margin: 0; color: #1e293b; font-size: 1.2rem;">Hindustan Zinc Limited</h3>
+                            <span class="minerals" style="display: inline-block; background: #1e293b; color: white; padding: 0.2rem 0.8rem; border-radius: 15px; font-size: 0.8rem; margin-top: 0.3rem;">Zinc, Lead, Silver</span>
+                        </div>
+                    </div>
+                    <div class="miner-body" style="padding: 1rem;">
+                        <p style="color: #334155; line-height: 1.5; margin-bottom: 1rem; font-size: 0.9rem;">One of India's largest integrated producers of zinc, lead, and silver, known for sustainable mining practices.</p>
+                        <div class="miner-highlights" style="display: grid; gap: 0.8rem;">
+                            <div class="highlight-item" style="background: #f8fafc; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #1e293b;">
+                                <i class="fas fa-leaf" style="color: #1e293b; font-size: 1rem;"></i>
+                                <h4 style="margin: 0 0 0.3rem 0; color: #1e293b; font-size: 0.95rem;">Environmental Initiatives</h4>
+                                <p style="margin: 0; color: #64748b; font-size: 0.85rem;">Zero discharge operations, extensive water recycling</p>
+                            </div>
+                            <div class="highlight-item" style="background: #f8fafc; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #1e293b;">
+                                <i class="fas fa-users" style="color: #1e293b; font-size: 1rem;"></i>
+                                <h4 style="margin: 0 0 0.3rem 0; color: #1e293b; font-size: 0.95rem;">Community Development</h4>
+                                <p style="margin: 0; color: #64748b; font-size: 0.85rem;">Education and healthcare programs in mining regions</p>
+                            </div>
+                        </div>
+                        <a href="https://www.hzlindia.com" class="website-link" target="_blank" style="display: inline-flex; align-items: center; gap: 0.4rem; color: #1e293b; text-decoration: none; font-weight: 500; padding: 0.4rem 0.8rem; border-radius: 6px; background: #f8fafc; transition: all 0.3s ease; font-size: 0.9rem; margin-top: 1rem;">
+                            <i class="fas fa-external-link-alt"></i> Visit Website
+                        </a>
+                    </div>
+                </div>
+
+                <div class="miner-profile" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); border: 1px solid rgba(0,0,0,0.08); position: relative; transform: scale(1); max-width: 320px; margin: 0 auto;">
+                    <div class="miner-header" style="padding: 1rem; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-bottom: 1px solid rgba(0,0,0,0.08);">
+                        <div class="miner-title" style="text-align: center;">
+                            <h3 style="margin: 0; color: #1e293b; font-size: 1.2rem;">NMDC Limited</h3>
+                            <span class="minerals" style="display: inline-block; background: #1e293b; color: white; padding: 0.2rem 0.8rem; border-radius: 15px; font-size: 0.8rem; margin-top: 0.3rem;">Iron Ore</span>
+                        </div>
+                    </div>
+                    <div class="miner-body" style="padding: 1rem;">
+                        <p style="color: #334155; line-height: 1.5; margin-bottom: 1rem; font-size: 0.9rem;">India's largest iron ore producer, setting standards in sustainable mining operations.</p>
+                        <div class="miner-highlights" style="display: grid; gap: 0.8rem;">
+                            <div class="highlight-item" style="background: #f8fafc; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #1e293b;">
+                                <i class="fas fa-leaf" style="color: #1e293b; font-size: 1rem;"></i>
+                                <h4 style="margin: 0 0 0.3rem 0; color: #1e293b; font-size: 0.95rem;">Environmental Initiatives</h4>
+                                <p style="margin: 0; color: #64748b; font-size: 0.85rem;">Advanced dust suppression systems, green belt development</p>
+                            </div>
+                            <div class="highlight-item" style="background: #f8fafc; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #1e293b;">
+                                <i class="fas fa-users" style="color: #1e293b; font-size: 1rem;"></i>
+                                <h4 style="margin: 0 0 0.3rem 0; color: #1e293b; font-size: 0.95rem;">Community Development</h4>
+                                <p style="margin: 0; color: #64748b; font-size: 0.85rem;">Skill development and employment generation programs</p>
+                            </div>
+                        </div>
+                        <a href="https://www.nmdc.co.in" class="website-link" target="_blank" style="display: inline-flex; align-items: center; gap: 0.4rem; color: #1e293b; text-decoration: none; font-weight: 500; padding: 0.4rem 0.8rem; border-radius: 6px; background: #f8fafc; transition: all 0.3s ease; font-size: 0.9rem; margin-top: 1rem;">
+                            <i class="fas fa-external-link-alt"></i> Visit Website
+                        </a>
+                    </div>
+                </div>
+
+                <div class="miner-profile" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); border: 1px solid rgba(0,0,0,0.08); position: relative; transform: scale(1); max-width: 320px; margin: 0 auto;">
+                    <div class="miner-header" style="padding: 1rem; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-bottom: 1px solid rgba(0,0,0,0.08);">
+                        <div class="miner-title" style="text-align: center;">
+                            <h3 style="margin: 0; color: #1e293b; font-size: 1.2rem;">Coal India Limited</h3>
+                            <span class="minerals" style="display: inline-block; background: #1e293b; color: white; padding: 0.2rem 0.8rem; border-radius: 15px; font-size: 0.8rem; margin-top: 0.3rem;">Coal</span>
+                        </div>
+                    </div>
+                    <div class="miner-body" style="padding: 1rem;">
+                        <p style="color: #334155; line-height: 1.5; margin-bottom: 1rem; font-size: 0.9rem;">World's largest coal mining company, implementing modern mining technologies.</p>
+                        <div class="miner-highlights" style="display: grid; gap: 0.8rem;">
+                            <div class="highlight-item" style="background: #f8fafc; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #1e293b;">
+                                <i class="fas fa-leaf" style="color: #1e293b; font-size: 1rem;"></i>
+                                <h4 style="margin: 0 0 0.3rem 0; color: #1e293b; font-size: 0.95rem;">Environmental Initiatives</h4>
+                                <p style="margin: 0; color: #64748b; font-size: 0.85rem;">Mine reclamation, afforestation programs</p>
+                            </div>
+                            <div class="highlight-item" style="background: #f8fafc; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #1e293b;">
+                                <i class="fas fa-users" style="color: #1e293b; font-size: 1rem;"></i>
+                                <h4 style="margin: 0 0 0.3rem 0; color: #1e293b; font-size: 0.95rem;">Community Development</h4>
+                                <p style="margin: 0; color: #64748b; font-size: 0.85rem;">Healthcare facilities and educational institutions</p>
+                            </div>
+                        </div>
+                        <a href="https://www.coalindia.in" class="website-link" target="_blank" style="display: inline-flex; align-items: center; gap: 0.4rem; color: #1e293b; text-decoration: none; font-weight: 500; padding: 0.4rem 0.8rem; border-radius: 6px; background: #f8fafc; transition: all 0.3s ease; font-size: 0.9rem; margin-top: 1rem;">
+                            <i class="fas fa-external-link-alt"></i> Visit Website
+                        </a>
+                    </div>
+                </div>
+
+                <div class="miner-profile" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); border: 1px solid rgba(0,0,0,0.08); position: relative; transform: scale(1); max-width: 320px; margin: 0 auto;">
+                    <div class="miner-header" style="padding: 1rem; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-bottom: 1px solid rgba(0,0,0,0.08);">
+                        <div class="miner-title" style="text-align: center;">
+                            <h3 style="margin: 0; color: #1e293b; font-size: 1.2rem;">Tata Steel</h3>
+                            <span class="minerals" style="display: inline-block; background: #1e293b; color: white; padding: 0.2rem 0.8rem; border-radius: 15px; font-size: 0.8rem; margin-top: 0.3rem;">Iron Ore, Coal</span>
+                        </div>
+                    </div>
+                    <div class="miner-body" style="padding: 1rem;">
+                        <p style="color: #334155; line-height: 1.5; margin-bottom: 1rem; font-size: 0.9rem;">Leading steel producer with integrated mining operations and strong sustainability focus.</p>
+                        <div class="miner-highlights" style="display: grid; gap: 0.8rem;">
+                            <div class="highlight-item" style="background: #f8fafc; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #1e293b;">
+                                <i class="fas fa-leaf" style="color: #1e293b; font-size: 1rem;"></i>
+                                <h4 style="margin: 0 0 0.3rem 0; color: #1e293b; font-size: 0.95rem;">Environmental Initiatives</h4>
+                                <p style="margin: 0; color: #64748b; font-size: 0.85rem;">Carbon footprint reduction, water conservation</p>
+                            </div>
+                            <div class="highlight-item" style="background: #f8fafc; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #1e293b;">
+                                <i class="fas fa-users" style="color: #1e293b; font-size: 1rem;"></i>
+                                <h4 style="margin: 0 0 0.3rem 0; color: #1e293b; font-size: 0.95rem;">Community Development</h4>
+                                <p style="margin: 0; color: #64748b; font-size: 0.85rem;">Education and healthcare initiatives</p>
+                            </div>
+                        </div>
+                        <a href="https://www.tatasteel.com" class="website-link" target="_blank" style="display: inline-flex; align-items: center; gap: 0.4rem; color: #1e293b; text-decoration: none; font-weight: 500; padding: 0.4rem 0.8rem; border-radius: 6px; background: #f8fafc; transition: all 0.3s ease; font-size: 0.9rem; margin-top: 1rem;">
+                            <i class="fas fa-external-link-alt"></i> Visit Website
+                        </a>
+                    </div>
+                </div>
+
+                <div class="miner-profile" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); border: 1px solid rgba(0,0,0,0.08); position: relative; transform: scale(1); max-width: 320px; margin: 0 auto;">
+                    <div class="miner-header" style="padding: 1rem; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-bottom: 1px solid rgba(0,0,0,0.08);">
+                        <div class="miner-title" style="text-align: center;">
+                            <h3 style="margin: 0; color: #1e293b; font-size: 1.2rem;">Vedanta Limited</h3>
+                            <span class="minerals" style="display: inline-block; background: #1e293b; color: white; padding: 0.2rem 0.8rem; border-radius: 15px; font-size: 0.8rem; margin-top: 0.3rem;">Zinc, Aluminium</span>
+                        </div>
+                    </div>
+                    <div class="miner-body" style="padding: 1rem;">
+                        <p style="color: #334155; line-height: 1.5; margin-bottom: 1rem; font-size: 0.9rem;">Diversified natural resources company with strong focus on sustainable mining.</p>
+                        <div class="miner-highlights" style="display: grid; gap: 0.8rem;">
+                            <div class="highlight-item" style="background: #f8fafc; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #1e293b;">
+                                <i class="fas fa-leaf" style="color: #1e293b; font-size: 1rem;"></i>
+                                <h4 style="margin: 0 0 0.3rem 0; color: #1e293b; font-size: 0.95rem;">Environmental Initiatives</h4>
+                                <p style="margin: 0; color: #64748b; font-size: 0.85rem;">Zero waste to landfill, renewable energy adoption</p>
+                            </div>
+                            <div class="highlight-item" style="background: #f8fafc; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #1e293b;">
+                                <i class="fas fa-users" style="color: #1e293b; font-size: 1rem;"></i>
+                                <h4 style="margin: 0 0 0.3rem 0; color: #1e293b; font-size: 0.95rem;">Community Development</h4>
+                                <p style="margin: 0; color: #64748b; font-size: 0.85rem;">Skill development and livelihood programs</p>
+                            </div>
+                        </div>
+                        <a href="https://www.vedantaresources.com" class="website-link" target="_blank" style="display: inline-flex; align-items: center; gap: 0.4rem; color: #1e293b; text-decoration: none; font-weight: 500; padding: 0.4rem 0.8rem; border-radius: 6px; background: #f8fafc; transition: all 0.3s ease; font-size: 0.9rem; margin-top: 1rem;">
+                            <i class="fas fa-external-link-alt"></i> Visit Website
+                        </a>
+                    </div>
+                </div>
+
+                <div class="miner-profile" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); border: 1px solid rgba(0,0,0,0.08); position: relative; transform: scale(1); max-width: 320px; margin: 0 auto;">
+                    <div class="miner-header" style="padding: 1rem; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-bottom: 1px solid rgba(0,0,0,0.08);">
+                        <div class="miner-title" style="text-align: center;">
+                            <h3 style="margin: 0; color: #1e293b; font-size: 1.2rem;">Hindalco Industries</h3>
+                            <span class="minerals" style="display: inline-block; background: #1e293b; color: white; padding: 0.2rem 0.8rem; border-radius: 15px; font-size: 0.8rem; margin-top: 0.3rem;">Bauxite, Aluminium</span>
+                        </div>
+                    </div>
+                    <div class="miner-body" style="padding: 1rem;">
+                        <p style="color: #334155; line-height: 1.5; margin-bottom: 1rem; font-size: 0.9rem;">Leading aluminium producer with sustainable mining practices.</p>
+                        <div class="miner-highlights" style="display: grid; gap: 0.8rem;">
+                            <div class="highlight-item" style="background: #f8fafc; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #1e293b;">
+                                <i class="fas fa-leaf" style="color: #1e293b; font-size: 1rem;"></i>
+                                <h4 style="margin: 0 0 0.3rem 0; color: #1e293b; font-size: 0.95rem;">Environmental Initiatives</h4>
+                                <p style="margin: 0; color: #64748b; font-size: 0.85rem;">Water conservation, biodiversity protection</p>
+                            </div>
+                            <div class="highlight-item" style="background: #f8fafc; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #1e293b;">
+                                <i class="fas fa-users" style="color: #1e293b; font-size: 1rem;"></i>
+                                <h4 style="margin: 0 0 0.3rem 0; color: #1e293b; font-size: 0.95rem;">Community Development</h4>
+                                <p style="margin: 0; color: #64748b; font-size: 0.85rem;">Education and healthcare support</p>
+                            </div>
+                        </div>
+                        <a href="https://www.hindalco.com" class="website-link" target="_blank" style="display: inline-flex; align-items: center; gap: 0.4rem; color: #1e293b; text-decoration: none; font-weight: 500; padding: 0.4rem 0.8rem; border-radius: 6px; background: #f8fafc; transition: all 0.3s ease; font-size: 0.9rem; margin-top: 1rem;">
+                            <i class="fas fa-external-link-alt"></i> Visit Website
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="miners-list">
-            <div class="section-header">
-                <h2>Major Legal Mining Companies</h2>
-                <div class="underline"></div>
-                <p class="section-intro">Companies leading the way in responsible resource extraction</p>
-            </div>
-            
-            <div class="miners-grid">
-                <div class="miner-profile">
-                    <div class="miner-header">
-                        <div class="miner-logo">
-                            <img src="images/coal-india-logo.png" alt="Coal India Limited Logo">
-                        </div>
-                        <div class="miner-title">
-                            <h3>Coal India Limited</h3>
-                            <span class="minerals">Coal</span>
-                        </div>
-                    </div>
-                    <div class="miner-body">
-                        <p>Coal India Limited (CIL) is the world's largest coal mining company, accounting for over 80% of India's coal production. Despite the environmental challenges inherent in coal mining, CIL has implemented several initiatives to reduce its ecological footprint:</p>
-                        
-                        <div class="miner-highlights">
-                            <div class="highlight-item">
-                                <div class="highlight-icon"><i class="fas fa-seedling"></i></div>
-                                <div class="highlight-content">
-                                    <h4>Land Reclamation</h4>
-                                    <p>Reclaimed over 15,000 hectares of mined land through afforestation and ecological restoration programs</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <div class="highlight-icon"><i class="fas fa-sun"></i></div>
-                                <div class="highlight-content">
-                                    <h4>Renewable Energy</h4>
-                                    <p>Installing 3,000 MW of solar power capacity to offset carbon emissions from operations</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <div class="highlight-icon"><i class="fas fa-tint"></i></div>
-                                <div class="highlight-content">
-                                    <h4>Water Management</h4>
-                                    <p>Advanced water treatment facilities that recycle mine water for community use</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="miner-website">
-                            <a href="https://www.coalindia.in/" target="_blank" class="website-link">Official Website <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="miner-profile">
-                    <div class="miner-header">
-                        <div class="miner-logo">
-                            <img src="images/nmdc-logo.png" alt="NMDC Limited Logo">
-                        </div>
-                        <div class="miner-title">
-                            <h3>NMDC Limited</h3>
-                            <span class="minerals">Iron Ore, Diamonds</span>
-                        </div>
-                    </div>
-                    <div class="miner-body">
-                        <p>NMDC is India's largest iron ore producer and exporter, operating mines in Chhattisgarh and Karnataka. The company has received multiple awards for its environmental management and sustainable mining practices:</p>
-                        
-                        <div class="miner-highlights">
-                            <div class="highlight-item">
-                                <div class="highlight-icon"><i class="fas fa-award"></i></div>
-                                <div class="highlight-content">
-                                    <h4>5-Star Rating</h4>
-                                    <p>Received 5-star ratings from the Ministry of Mines for sustainable development practices</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <div class="highlight-icon"><i class="fas fa-people-carry"></i></div>
-                                <div class="highlight-content">
-                                    <h4>Community Development</h4>
-                                    <p>Invested ₹200+ crore in healthcare, education, and infrastructure for mining-affected communities</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <div class="highlight-icon"><i class="fas fa-recycle"></i></div>
-                                <div class="highlight-content">
-                                    <h4>Waste Management</h4>
-                                    <p>Pioneering methods to utilize mining waste as construction material and landscaping</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="miner-website">
-                            <a href="https://www.nmdc.co.in/" target="_blank" class="website-link">Official Website <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="miner-profile">
-                    <div class="miner-header">
-                        <div class="miner-logo">
-                            <img src="images/hindustan-zinc-logo.png" alt="Hindustan Zinc Logo">
-                        </div>
-                        <div class="miner-title">
-                            <h3>Hindustan Zinc Limited</h3>
-                            <span class="minerals">Zinc, Lead, Silver</span>
-                        </div>
-                    </div>
-                    <div class="miner-body">
-                        <p>Hindustan Zinc is one of the world's largest integrated producers of zinc and lead. The company has made significant strides in sustainable mining through technology and innovation:</p>
-                        
-                        <div class="miner-highlights">
-                            <div class="highlight-item">
-                                <div class="highlight-icon"><i class="fas fa-tint-slash"></i></div>
-                                <div class="highlight-content">
-                                    <h4>Water Conservation</h4>
-                                    <p>Reduced freshwater consumption by 40% through recycling and rainwater harvesting</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <div class="highlight-icon"><i class="fas fa-solar-panel"></i></div>
-                                <div class="highlight-content">
-                                    <h4>Renewable Energy</h4>
-                                    <p>Meets 40% of energy needs through renewable sources, with plans to reach 100% by 2030</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <div class="highlight-icon"><i class="fas fa-robot"></i></div>
-                                <div class="highlight-content">
-                                    <h4>Automation</h4>
-                                    <p>Implemented digital mining technologies to improve efficiency and worker safety</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="miner-website">
-                            <a href="https://www.hzlindia.com/" target="_blank" class="website-link">Official Website <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="miner-profile">
-                    <div class="miner-header">
-                        <div class="miner-logo">
-                            <img src="images/nalco-logo.png" alt="NALCO Logo">
-                        </div>
-                        <div class="miner-title">
-                            <h3>National Aluminium Company (NALCO)</h3>
-                            <span class="minerals">Bauxite, Aluminium</span>
-                        </div>
-                    </div>
-                    <div class="miner-body">
-                        <p>NALCO is Asia's largest integrated bauxite-alumina-aluminium complex. The company operates bauxite mines in Odisha with a strong focus on environmental management:</p>
-                        
-                        <div class="miner-highlights">
-                            <div class="highlight-item">
-                                <div class="highlight-icon"><i class="fas fa-tree"></i></div>
-                                <div class="highlight-content">
-                                    <h4>Biodiversity Conservation</h4>
-                                    <p>Planted over 7.5 million trees in mining areas and established wildlife conservation zones</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <div class="highlight-icon"><i class="fas fa-mountain"></i></div>
-                                <div class="highlight-content">
-                                    <h4>Topsoil Preservation</h4>
-                                    <p>Advanced topsoil management to maintain soil quality for post-mining restoration</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <div class="highlight-icon"><i class="fas fa-leaf"></i></div>
-                                <div class="highlight-content">
-                                    <h4>Carbon Footprint</h4>
-                                    <p>Reduced carbon emissions by 15% through energy efficiency and process improvements</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="miner-website">
-                            <a href="https://www.nalcoindia.com/" target="_blank" class="website-link">Official Website <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="miner-profile">
-                    <div class="miner-header">
-                        <div class="miner-logo">
-                            <img src="images/sesa-goa-logo.png" alt="Vedanta Sesa Goa Logo">
-                        </div>
-                        <div class="miner-title">
-                            <h3>Vedanta - Sesa Goa</h3>
-                            <span class="minerals">Iron Ore</span>
-                        </div>
-                    </div>
-                    <div class="miner-body">
-                        <p>Sesa Goa, a Vedanta Group company, is one of India's largest private sector iron ore producers. Following historical controversies, the company has invested heavily in sustainable mining practices:</p>
-                        
-                        <div class="miner-highlights">
-                            <div class="highlight-item">
-                                <div class="highlight-icon"><i class="fas fa-water"></i></div>
-                                <div class="highlight-content">
-                                    <h4>Watershed Management</h4>
-                                    <p>Constructed 42 check dams and water harvesting structures to prevent erosion and support local agriculture</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <div class="highlight-icon"><i class="fas fa-graduation-cap"></i></div>
-                                <div class="highlight-content">
-                                    <h4>Education Initiatives</h4>
-                                    <p>Established schools and vocational training centers for mining communities, benefiting 15,000+ students</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <div class="highlight-icon"><i class="fas fa-truck"></i></div>
-                                <div class="highlight-content">
-                                    <h4>Transportation</h4>
-                                    <p>Invested in covered transportation systems to minimize dust pollution during ore transport</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="miner-website">
-                            <a href="https://www.vedantalimited.com/eng/iron-ore.php" target="_blank" class="website-link">Official Website <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="miner-profile">
-                    <div class="miner-header">
-                        <div class="miner-logo">
-                            <img src="images/moil-logo.png" alt="MOIL Logo">
-                        </div>
-                        <div class="miner-title">
-                            <h3>MOIL Limited</h3>
-                            <span class="minerals">Manganese Ore</span>
-                        </div>
-                    </div>
-                    <div class="miner-body">
-                        <p>MOIL is India's largest producer of manganese ore, a critical material for steel production. The company operates 11 mines across Maharashtra and Madhya Pradesh with a focus on environmental conservation:</p>
-                        
-                        <div class="miner-highlights">
-                            <div class="highlight-item">
-                                <div class="highlight-icon"><i class="fas fa-lightbulb"></i></div>
-                                <div class="highlight-content">
-                                    <h4>Energy Efficiency</h4>
-                                    <p>Reduced energy consumption by 25% through optimization of ventilation systems and equipment upgrades</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <div class="highlight-icon"><i class="fas fa-shield-alt"></i></div>
-                                <div class="highlight-content">
-                                    <h4>Worker Safety</h4>
-                                    <p>Achieved zero fatality record for 5+ consecutive years through comprehensive safety programs</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <div class="highlight-icon"><i class="fas fa-users"></i></div>
-                                <div class="highlight-content">
-                                    <h4>Community Health</h4>
-                                    <p>Operates mobile health units and specialty hospitals serving 30,000+ residents in mining regions</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="miner-website">
-                            <a href="https://www.moil.nic.in/" target="_blank" class="website-link">Official Website <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
         <section class="mining-operations">
             <div class="section-header">
                 <h2>Major Mining Operations by Region</h2>
                 <div class="underline"></div>
                 <p class="section-intro">Key legal mining projects across different states of India</p>
+            </div>
+            
+            <div class="mining-practices-heading" style="margin: 0;">
+                <h2>Mining Operations</h2>
             </div>
             
             <div class="operations-grid">
@@ -804,16 +982,16 @@
         </section>
         
         <section class="certification-section">
-            <div class="section-header">
-                <h2>Mining Industry Certifications</h2>
-                <div class="underline"></div>
-                <p class="section-intro">Standards that verify responsible mining practices</p>
-            </div>
+            <h2 style="color: #1B5E20; font-size: 2.5rem; text-align: center; margin-bottom: 1rem; position: relative;">
+                Mining Industry Certifications
+                <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: linear-gradient(90deg, #1B5E20, #2E7D32); border-radius: 2px;"></div>
+            </h2>
+            <p style="text-align: center; color: #4a5568; font-size: 1.2rem; max-width: 800px; margin: 1rem auto;">Standards that verify responsible mining practices</p>
             
             <div class="certifications-container">
                 <div class="certification-card">
                     <div class="certification-logo">
-                        <img src="images/five-star-rating.png" alt="Five Star Rating Logo">
+                        <img src="five-rate.png" alt="Five Star Rating Logo">
                     </div>
                     <h3>Sustainable Development Framework Star Rating</h3>
                     <p>Developed by the Indian Bureau of Mines, this system rates mines from 1-5 stars based on their scientific, sustainable, and socially responsible mining practices.</p>
@@ -822,7 +1000,7 @@
                 
                 <div class="certification-card">
                     <div class="certification-logo">
-                        <img src="images/iso-14001-logo.png" alt="ISO 14001 Logo">
+                        <img src="iso-logo.png" alt="ISO 14001 Logo">
                     </div>
                     <h3>ISO 14001 Environmental Management</h3>
                     <p>International standard for effective environmental management systems that minimize negative impacts and enhance environmental performance.</p>
@@ -831,7 +1009,7 @@
                 
                 <div class="certification-card">
                     <div class="certification-logo">
-                        <img src="images/irma-logo.png" alt="IRMA Logo">
+                        <img src="irma-logo.png" alt="IRMA Logo">
                     </div>
                     <h3>Initiative for Responsible Mining Assurance</h3>
                     <p>A comprehensive standard for industrial-scale mining that addresses environmental and social issues with stringent verification processes.</p>
@@ -843,51 +1021,105 @@
                 <p>When evaluating mining companies, look for these certifications as indicators of commitment to responsible practices. Certifications provide third-party verification that companies are meeting established standards for environmental and social performance.</p>
             </div>
         </section>
+
+        <section class="industrial-mining-types" style="padding: 2rem 0;">
+            <h2 style="color: #1B5E20; font-size: 2.5rem; text-align: center; margin-bottom: 1rem; position: relative;">
+                Industrial Mining Types
+                <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: linear-gradient(90deg, #1B5E20, #2E7D32); border-radius: 2px;"></div>
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin: 2rem 0; padding: 0 1rem;">
+                <div style="background: white; padding: 1.5rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; min-width: 0;">
+                    <h3 style="color: #1B5E20; margin-bottom: 1rem; font-size: 1.4rem;">Open-Pit Mining</h3>
+                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 10px; margin-bottom: 0.8rem; word-wrap: break-word;">
+                        <p style="margin: 0; color: #4a5568; font-size: 0.95rem; white-space: normal;">Surface area affected: <span style="color: #1B5E20; font-weight: 600;">2-3 km²</span></p>
+                    </div>
+                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 10px; margin-bottom: 0.8rem; word-wrap: break-word;">
+                        <p style="margin: 0; color: #4a5568; font-size: 0.95rem; white-space: normal;">Depth: <span style="color: #1B5E20; font-weight: 600;">100-400 meters</span></p>
+                    </div>
+                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 10px; word-wrap: break-word;">
+                        <p style="margin: 0; color: #4a5568; font-size: 0.95rem; white-space: normal;">Annual production: <span style="color: #1B5E20; font-weight: 600;">1-5 million tons</span></p>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: 1.5rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; min-width: 0;">
+                    <h3 style="color: #1B5E20; margin-bottom: 1rem; font-size: 1.4rem;">Underground Mining</h3>
+                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 10px; margin-bottom: 0.8rem; word-wrap: break-word;">
+                        <p style="margin: 0; color: #4a5568; font-size: 0.95rem; white-space: normal;">Tunnel length: <span style="color: #1B5E20; font-weight: 600;">2-5 km</span></p>
+                    </div>
+                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 10px; margin-bottom: 0.8rem; word-wrap: break-word;">
+                        <p style="margin: 0; color: #4a5568; font-size: 0.95rem; white-space: normal;">Depth: <span style="color: #1B5E20; font-weight: 600;">500-1000 meters</span></p>
+                    </div>
+                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 10px; word-wrap: break-word;">
+                        <p style="margin: 0; color: #4a5568; font-size: 0.95rem; white-space: normal;">Annual production: <span style="color: #1B5E20; font-weight: 600;">0.5-2 million tons</span></p>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: 1.5rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; min-width: 0;">
+                    <h3 style="color: #1B5E20; margin-bottom: 1rem; font-size: 1.4rem;">Placer Mining</h3>
+                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 10px; margin-bottom: 0.8rem; word-wrap: break-word;">
+                        <p style="margin: 0; color: #4a5568; font-size: 0.95rem; white-space: normal;">Area covered: <span style="color: #1B5E20; font-weight: 600;">1-2 km²</span></p>
+                    </div>
+                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 10px; margin-bottom: 0.8rem; word-wrap: break-word;">
+                        <p style="margin: 0; color: #4a5568; font-size: 0.95rem; white-space: normal;">Water usage: <span style="color: #1B5E20; font-weight: 600;">1000-2000 m³/day</span></p>
+                    </div>
+                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 10px; word-wrap: break-word;">
+                        <p style="margin: 0; color: #4a5568; font-size: 0.95rem; white-space: normal;">Annual production: <span style="color: #1B5E20; font-weight: 600;">1000-5000 kg</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
         <footer class="container">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="LOGO.png" alt="Bhoomi Rakshak Logo">
-                <span>Bhoomi Rakshak</span>
+            <div class="footer-content" style="padding: 2rem 0;">
+                <div class="footer-logo" style="text-align: center; margin-bottom: 2rem;">
+                    <img src="LOGO.png" alt="Bhoomi Rakshak Logo" style="width: 50px; height: auto;">
+                    <span style="display: block; margin-top: 0.5rem; font-weight: 600;">Bhoomi Rakshak</span>
+                </div>
+                
+                <div class="footer-navigation" style="display: flex; flex-direction: column; align-items: center;">
+                    <div class="footer-headings" style="display: flex; justify-content: space-around; width: 100%; margin-bottom: 1.5rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 1rem;">
+                        <h4 style="color: #1B5E20; font-size: 1.2rem; margin: 0; padding: 0 2rem;">Quick Links</h4>
+                        <h4 style="color: #1B5E20; font-size: 1.2rem; margin: 0; padding: 0 2rem;">Resources</h4>
+                        <h4 style="color: #1B5E20; font-size: 1.2rem; margin: 0; padding: 0 2rem;">Legal</h4>
+                    </div>
+
+                    <div class="footer-links" style="display: flex; justify-content: space-around; width: 100%;">
+                        <div class="link-group" style="text-align: center; min-width: 200px;">
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li style="margin-bottom: 0.8rem;"><a href="#home" style="color: #4a5568; text-decoration: none; transition: color 0.3s;">Home</a></li>
+                                <li style="margin-bottom: 0.8rem;"><a href="#about" style="color: #4a5568; text-decoration: none; transition: color 0.3s;">About</a></li>
+                                <li style="margin-bottom: 0.8rem;"><a href="#impact" style="color: #4a5568; text-decoration: none; transition: color 0.3s;">Impact</a></li>
+                                <li style="margin-bottom: 0.8rem;"><a href="#laws" style="color: #4a5568; text-decoration: none; transition: color 0.3s;">Laws</a></li>
+                                <li style="margin-bottom: 0.8rem;"><a href="news.html" style="color: #4a5568; text-decoration: none; transition: color 0.3s;">News</a></li>
+                                <li style="margin-bottom: 0.8rem;"><a href="tracking.html" style="color: #4a5568; text-decoration: none; transition: color 0.3s;">Real-time Tracking</a></li>
+                                <li style="margin-bottom: 0.8rem;"><a href="#report" style="color: #4a5568; text-decoration: none; transition: color 0.3s;">Report</a></li>
+                            </ul>
+                        </div>
+                        <div class="link-group" style="text-align: center; min-width: 200px;">
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li style="margin-bottom: 0.8rem;"><a href="#" style="color: #4a5568; text-decoration: none; transition: color 0.3s;">Fact Sheets</a></li>
+                                <li style="margin-bottom: 0.8rem;"><a href="#" style="color: #4a5568; text-decoration: none; transition: color 0.3s;">Legal Guide</a></li>
+                                <li style="margin-bottom: 0.8rem;"><a href="#" style="color: #4a5568; text-decoration: none; transition: color 0.3s;">Research Papers</a></li>
+                                <li style="margin-bottom: 0.8rem;"><a href="#" style="color: #4a5568; text-decoration: none; transition: color 0.3s;">Case Studies</a></li>
+                            </ul>
+                        </div>
+                        <div class="link-group" style="text-align: center; min-width: 200px;">
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li style="margin-bottom: 0.8rem;"><a href="#" style="color: #4a5568; text-decoration: none; transition: color 0.3s;">Privacy Policy</a></li>
+                                <li style="margin-bottom: 0.8rem;"><a href="#" style="color: #4a5568; text-decoration: none; transition: color 0.3s;">Terms of Service</a></li>
+                                <li style="margin-bottom: 0.8rem;"><a href="#" style="color: #4a5568; text-decoration: none; transition: color 0.3s;">Disclaimer</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="footer-links">
-                <div class="link-group">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#impact">Impact</a></li>
-                        <li><a href="#laws">Laws</a></li>
-                        <li><a href="news.html">News</a></li>
-                        <li><a href="tracking.html">Real-time Tracking</a></li>
-                        <li><a href="#report">Report</a></li>
-                    </ul>
-                </div>
-                <div class="link-group">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">Fact Sheets</a></li>
-                        <li><a href="#">Legal Guide</a></li>
-                        <li><a href="#">Research Papers</a></li>
-                        <li><a href="#">Case Studies</a></li>
-                    </ul>
-                </div>
-                <div class="link-group">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Disclaimer</a></li>
-                    </ul>
-                </div>
+            <div class="footer-bottom" style="text-align: center; padding: 1.5rem 0; border-top: 1px solid #e2e8f0; margin-top: 2rem;">
+                <p style="margin: 0; color: #4a5568;">&copy; 2025 Bhoomi Rakshak. All rights reserved.</p>
+                <p style="margin: 0.5rem 0 0; color: #4a5568;">Committed to protecting our Earth from illegal mining activities.</p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Bhoomi Rakshak. All rights reserved.</p>
-            <p>Committed to protecting our Earth from illegal mining activities.</p>
-        </div>
-    </footer>
+        </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Mobile menu functionality
