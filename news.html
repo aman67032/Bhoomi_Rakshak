@@ -207,25 +207,78 @@ nav {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: var(--transition);
+    transition: all 0.3s ease;
+    position: relative;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.news-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    padding: 2px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .news-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.news-card:hover::before {
+    opacity: 1;
 }
 
 .news-image {
-    height: 200px;
+    position: relative;
+    overflow: hidden;
 }
 
-.news-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.news-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.news-card:hover .news-image::after {
+    opacity: 1;
 }
 
 .news-content {
     padding: 1.5rem;
+    position: relative;
+}
+
+.news-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 1.5rem;
+    right: 1.5rem;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover .news-content::before {
+    transform: scaleX(1);
 }
 
 .news-meta {
@@ -315,9 +368,10 @@ nav {
 
 /* Footer */
 footer {
-    background: var(--white);
+    background: #000000;
     padding: 4rem 0 2rem;
     margin-top: 4rem;
+    color: var(--white);
 }
 
 .footer-content {
@@ -333,8 +387,9 @@ footer {
 }
 
 .link-group h4 {
-    color: var(--text-dark);
+    color: var(--primary-color);
     margin-bottom: 1rem;
+    font-size: 1.2rem;
 }
 
 .link-group ul {
@@ -343,21 +398,34 @@ footer {
 }
 
 .link-group a {
-    color: var(--text-light);
+    color: var(--white);
     text-decoration: none;
     transition: var(--transition);
+    opacity: 0.8;
 }
 
 .link-group a:hover {
     color: var(--primary-color);
+    opacity: 1;
 }
 
 .footer-bottom {
     text-align: center;
     margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 1px solid #eee;
-    color: var(--text-light);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    opacity: 0.8;
+}
+
+.footer-logo {
+    color: var(--white);
+}
+
+.footer-logo span {
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 /* Responsive Design */
@@ -401,7 +469,7 @@ footer {
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="#impact">Impact</a></li>
+                <li><a href="impact.html">Impact</a></li>
                 <li><a href="laws.html">Laws</a></li>
                 <li><a href="news.html">News</a></li>
                 <li><a href="tracking.html"><i class="fas fa-map-marker-alt"></i> Real-time Tracking</a></li>
@@ -458,25 +526,6 @@ footer {
             </div>
         </section>
 
-        <section class="news-featured">
-            <div class="featured-news-card">
-                <div class="featured-image">
-                    <img src="images/news-featured.jpg" alt="Supreme Court Hearing on Mining Regulations">
-                    <div class="featured-tag">Breaking News</div>
-                </div>
-                <div class="featured-content">
-                    <div class="news-meta">
-                        <span class="news-date">June 15, 2023</span>
-                        <span class="news-category">Policy Updates</span>
-                    </div>
-                    <h2>Supreme Court Orders Stricter Enforcement of Mining Regulations in Protected Areas</h2>
-                    <p>In a landmark judgment, the Supreme Court of India has directed all state governments to implement stricter monitoring and enforcement of mining regulations in and around protected forest areas and wildlife sanctuaries.</p>
-                    <p>The court has mandated the formation of special task forces in each state to conduct regular inspections and take immediate action against illegal mining operations within a 10km radius of ecologically sensitive zones.</p>
-                    <a href="#" class="btn btn-primary">Read Full Story</a>
-                </div>
-            </div>
-        </section>
-
         <section class="news-grid">
             <div class="section-header">
                 <h2>Recent News</h2>
@@ -487,7 +536,7 @@ footer {
                 <!-- News Item 1 -->
                 <div class="news-card">
                     <div class="news-image">
-                        <img src="images/news1.jpg" alt="Mining Operation Shutdown">
+                        <img src="mining-shut.png" alt="Mining Operation Shutdown" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="news-content">
                         <div class="news-meta">
@@ -502,8 +551,8 @@ footer {
                 
                 <!-- News Item 2 -->
                 <div class="news-card">
-                    <div class="news-image">
-                        <img src="images/news2.jpg" alt="Community Protest">
+                    <div class="news-image" style="background-color: #f5f5f5;">
+                        <img src="protest.png" alt="Community Protest" style="width: 100%; height: 100%; object-fit: contain;">
                     </div>
                     <div class="news-content">
                         <div class="news-meta">
@@ -519,7 +568,7 @@ footer {
                 <!-- News Item 3 -->
                 <div class="news-card">
                     <div class="news-image">
-                        <img src="images/news3.jpg" alt="Satellite Monitoring">
+                        <img src="sattelite.png" alt="Satellite Monitoring" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="news-content">
                         <div class="news-meta">
@@ -535,7 +584,7 @@ footer {
                 <!-- News Item 4 -->
                 <div class="news-card">
                     <div class="news-image">
-                        <img src="images/news4.jpg" alt="Water Pollution">
+                        <img src="water-poll.png" alt="Water Pollution" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="news-content">
                         <div class="news-meta">
@@ -551,7 +600,7 @@ footer {
                 <!-- News Item 5 -->
                 <div class="news-card">
                     <div class="news-image">
-                        <img src="images/news5.jpg" alt="Law Enforcement">
+                        <img src="law-enfor.png" alt="Law Enforcement" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="news-content">
                         <div class="news-meta">
@@ -567,7 +616,7 @@ footer {
                 <!-- News Item 6 -->
                 <div class="news-card">
                     <div class="news-image">
-                        <img src="images/news6.jpg" alt="Policy Meeting">
+                        <img src="policy-meet.png" alt="Policy Meeting" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="news-content">
                         <div class="news-meta">
@@ -600,6 +649,21 @@ footer {
                     <input type="email" placeholder="Your email address" required>
                     <button type="submit" class="btn btn-primary">Subscribe</button>
                 </form>
+            </div>
+        </section>
+
+        <section class="news-featured">
+            <div class="featured-news-card">
+                <div class="featured-content">
+                    <div class="news-meta">
+                        <span class="news-date">June 15, 2023</span>
+                        <span class="news-category">Policy Updates</span>
+                    </div>
+                    <h2>Supreme Court Orders Stricter Enforcement of Mining Regulations in Protected Areas</h2>
+                    <p>In a landmark judgment, the Supreme Court of India has directed all state governments to implement stricter monitoring and enforcement of mining regulations in and around protected forest areas and wildlife sanctuaries.</p>
+                    <p>The court has mandated the formation of special task forces in each state to conduct regular inspections and take immediate action against illegal mining operations within a 10km radius of ecologically sensitive zones.</p>
+                    <a href="#" class="btn btn-primary">Read Full Story</a>
+                </div>
             </div>
         </section>
     </main>
@@ -668,6 +732,7 @@ footer {
             const newsRegion = document.getElementById('news-region');
             const newsSearch = document.getElementById('news-search');
             const newsCards = document.querySelectorAll('.news-card');
+            const newsContainer = document.querySelector('.news-container');
             
             // Simple filter example (would be more complex in production)
             function filterNews() {
@@ -685,11 +750,16 @@ footer {
                     let searchMatch = searchValue === '' || content.includes(searchValue);
                     
                     if (categoryMatch && regionMatch && searchMatch) {
-                        card.style.display = 'flex';
+                        card.style.display = 'block';
                     } else {
                         card.style.display = 'none';
                     }
                 });
+
+                // Maintain grid layout
+                newsContainer.style.display = 'grid';
+                newsContainer.style.gridTemplateColumns = 'repeat(auto-fit, minmax(300px, 1fr))';
+                newsContainer.style.gap = '2rem';
             }
             
             // Add event listeners for filtering
